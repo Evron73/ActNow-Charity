@@ -1,380 +1,733 @@
 <!DOCTYPE html>
-<html lang="hu" class="scroll-smooth">
+<html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ActNow Charity — Átlátható jótékonyság a zsebedben / Transparent Charity</title>
-  
-  <meta name="description" content="Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok. A történet itt a weben, a cselekvés az appban.">
-  <meta property="og:title" content="ActNow Charity — Cselekedj most. Változtasd meg a holnapot.">
-  <meta property="og:description" content="Dokumentált cselekvés, átlátható támogatások és közvetlen segítségnyújtás.">
-  <meta property="og:url" content="https://actnowcharity.com">
-  <meta property="og:type" content="website">
-
-  <!-- Google Fonts: Cormorant Garamond & DM Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'actnow-dark': '#020617',
-            'actnow-card': 'rgba(15, 23, 42, 0.85)',
-            'actnow-cyan': '#22d3ee',
-            'actnow-green': '#34d399',
-            'actnow-gold': '#F5C842',
-            'actnow-muted': '#94a3b8',
-            'actnow-light': '#f1f5f9'
-          },
-          fontFamily: {
-            serif: ['Cormorant Garamond', 'serif'],
-            sans: ['DM Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ActNow Charity – Cselekedj most</title>
+  <meta name="description" content="Az ActNow összeköti a segíteni akarókat a valódi ügyekkel. Történet a weben, cselekvés az appban." />
+  <meta property="og:title" content="ActNow Charity – Cselekedj most" />
+  <meta property="og:description" content="Átlátható jótékonyság. Szendrő-történet, partnerek, app letöltés." />
+  <meta property="og:url" content="https://actnowcharity.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://actnowcharity.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .glass-card {
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .glass-nav {
-      background: rgba(2, 6, 23, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .neon-glow-cyan {
-      box-shadow: 0 0 30px rgba(34, 211, 238, 0.12);
-    }
-    .neon-glow-gold {
-      box-shadow: 0 0 30px rgba(245, 200, 66, 0.12);
-    }
+/* ActNow Charity — matches mobile app brand */
+:root {
+  --bg: #020617;
+  --bg-elevated: #0f172a;
+  --card: rgba(15, 23, 42, 0.88);
+  --cyan: #22d3ee;
+  --cyan-soft: #67e8f9;
+  --green: #34d399;
+  --gold: #f5c842;
+  --cream: #f1f5f9;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.18);
+  --radius: 1.25rem;
+  --max: 72rem;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cyan-soft);
+}
+
+.container {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(2, 6, 23, 0.92);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.logo span {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: none;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--cream);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--cyan);
+  color: #020617;
+}
+
+.btn-primary:hover {
+  background: var(--cyan-soft);
+  color: #020617;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.btn-gold {
+  background: rgba(245, 200, 66, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(245, 200, 66, 0.45);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 0 3.5rem;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 22rem;
+  height: 22rem;
+  background: rgba(34, 211, 238, 0.12);
+  top: -6rem;
+  left: -4rem;
+}
+
+.hero::after {
+  width: 18rem;
+  height: 18rem;
+  background: rgba(52, 211, 153, 0.1);
+  bottom: -4rem;
+  right: -2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  letter-spacing: -0.02em;
+}
+
+h1 .accent {
+  color: var(--cyan);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: var(--muted);
+  max-width: 38rem;
+  margin: 0 0 1.75rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.badge-soon {
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-muted {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.section-head {
+  margin-bottom: 2rem;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.grid-3 {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card-accent {
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.steps {
+  display: grid;
+  gap: 1rem;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.step-num {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--cyan);
+  color: #020617;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.timeline {
+  display: grid;
+  gap: 1.25rem;
+  border-left: 2px solid rgba(34, 211, 238, 0.35);
+  padding-left: 1.25rem;
+}
+
+.timeline article {
+  position: relative;
+}
+
+.timeline article::before {
+  content: "";
+  position: absolute;
+  left: -1.7rem;
+  top: 0.45rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+}
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.partner-chip {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-grid a {
+  color: var(--muted);
+  display: block;
+  margin: 0.35rem 0;
+}
+
+.footer-grid a:hover {
+  color: var(--cyan);
+}
+
+.footer-title {
+  color: var(--cream);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.media-placeholder {
+  border: 1px dashed rgba(34, 211, 238, 0.35);
+  border-radius: var(--radius);
+  min-height: 12rem;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: rgba(15, 23, 42, 0.6);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.form {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 32rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: rgba(2, 6, 23, 0.7);
+  color: var(--cream);
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.bridge {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.bridge .card {
+  max-width: 28rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
-<body class="bg-actnow-dark text-actnow-light font-sans antialiased selection:bg-actnow-cyan selection:text-actnow-dark">
-
-  <!-- NAVIGÁCIÓ -->
-  <nav class="sticky top-0 z-50 glass-nav">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-1.5 text-2xl font-bold tracking-tight">
-        <span class="text-actnow-cyan">Act</span><span class="text-white">Now</span>
-      </a>
-      
-      <!-- Menü linkek -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-actnow-muted">
-        <a href="#tortenet" class="hover:text-actnow-cyan transition" data-i18n="nav-story">Történetünk</a>
-        <a href="#szendro" class="hover:text-actnow-cyan transition" data-i18n="nav-szendro">Szendrő Kampány</a>
-        <a href="#partnerek" class="hover:text-actnow-cyan transition" data-i18n="nav-partners">Partnerek</a>
-        <a href="#szervezetek" class="hover:text-actnow-cyan transition" data-i18n="nav-orgs">Szervezeteknek</a>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <!-- Nyelvválasztó Gomb -->
-        <div class="inline-flex rounded-full bg-slate-900 p-1 border border-slate-800 text-xs font-bold">
-          <button id="lang-hu" onclick="switchLanguage('hu')" class="px-3 py-1 rounded-full text-actnow-cyan bg-slate-800 transition">HU</button>
-          <button id="lang-en" onclick="switchLanguage('en')" class="px-3 py-1 rounded-full text-actnow-muted hover:text-white transition">EN</button>
-        </div>
-
-        <!-- Letöltés Gomb -->
-        <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer" 
-           class="bg-actnow-cyan hover:bg-cyan-300 text-actnow-dark font-bold px-5 py-2 rounded-full text-sm transition shadow-lg shadow-cyan-500/20" data-i18n="btn-download">
-          App letöltése
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <header class="relative overflow-hidden py-24 md:py-32 border-b border-slate-800/60">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-actnow-cyan/10 rounded-full blur-[140px] pointer-events-none"></div>
-
-    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-      <span class="inline-block bg-slate-900/90 text-actnow-cyan border border-actnow-cyan/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6" data-i18n="hero-eyebrow">
-        Átlátható jótékonyság a zsebedben
-      </span>
-      
-      <h1 class="text-5xl md:text-7xl font-serif font-bold tracking-tight leading-tight mb-8">
-        <span data-i18n="hero-title-1">Cselekedj most.</span><br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-actnow-cyan via-actnow-green to-actnow-gold" data-i18n="hero-title-2">Változtasd meg a holnapot.</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-actnow-muted max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero-lead">
-        Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok. A történet itt a weben, a cselekvés az appban.
-      </p>
-
-      <!-- Store / CTA Gombok -->
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer"
-           class="bg-white hover:bg-slate-100 text-actnow-dark font-bold px-8 py-3.5 rounded-full flex items-center gap-3 transition shadow-xl">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.33.13-9.13-1.9-14.4-6.08-3.81-3.04-7.84-7.86-12.08-14.45-6.53-10.13-11.52-21.49-14.97-34.09-3.45-12.6-5.18-24.36-5.18-35.29 0-14.7 3.58-26.68 10.74-35.95 7.16-9.28 16.17-14.03 27.02-14.28 4.88 0 10.16 1.25 15.82 3.75 5.66 2.5 9.74 3.75 12.25 3.75 2.12 0 6.33-1.28 12.63-3.85 6.3-2.57 11.66-3.72 16.08-3.46 11.96.98 21.36 5.59 28.21 13.82-10.56 6.41-15.72 15.25-15.48 26.52.24 8.82 3.63 16.17 10.18 22.05 6.55 5.88 14.37 9.22 23.46 10.02-2.52 7.42-5.83 15.11-9.93 23.08zM119.22 31.84c0-7.08 2.52-13.82 7.56-20.22 5.04-6.4 11.45-10.45 19.23-12.15.52 6.86-1.83 13.62-7.05 20.28-5.22 6.66-11.63 10.59-19.23 11.79-.13-.02-.34-.14-.51-.3-.17-.16-.38-.28-.51-.3-.02-.13-.02-.35-.02-.51z"/></svg>
-          App Store
-        </a>
-        <div class="glass-card px-6 py-3.5 rounded-full text-sm text-actnow-muted border border-slate-700/50" data-i18n="android-badge">
-          ⚙️ Hamarosan Androidra is
-        </div>
-        <a href="#tortenet" class="text-actnow-cyan hover:underline px-6 py-3.5 text-sm font-semibold" data-i18n="hero-story-link">
-          Teljes történet megtekintése →
-        </a>
-      </div>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#top"><span>Act</span>Now</a>
+      <nav class="nav-links" aria-label="Főmenü">
+        <a href="#tortenet">Történet</a>
+        <a href="#szendro">Szendrő</a>
+        <a href="#partnerek">Partnerek</a>
+        <a href="#szervezetek">Szervezetek</a>
+      </nav>
+      <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése</a>
     </div>
   </header>
 
-  <!-- MIÉRT ACTNOW? -->
-  <section class="max-w-7xl mx-auto px-6 py-24">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-serif font-bold text-white mb-4" data-i18n="why-title">Miért az ActNow?</h2>
-      <p class="text-actnow-muted max-w-xl mx-auto" data-i18n="why-subtitle">Valódi, dokumentált segítségnyújtás bürokrácia nélkül.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass-card p-8 rounded-3xl neon-glow-cyan">
-        <div class="w-12 h-12 rounded-2xl bg-actnow-cyan/10 text-actnow-cyan flex items-center justify-center font-bold text-xl mb-6">1</div>
-        <h3 class="text-xl font-bold mb-3 text-white" data-i18n="why-1-title">Közvetlen hatás</h3>
-        <p class="text-actnow-muted leading-relaxed" data-i18n="why-1-desc">Felajánlás és támogatás közvetlenül a helyi ügyhöz. Nincsenek elrejtett rendszerköltségek.</p>
-      </div>
-
-      <div class="glass-card p-8 rounded-3xl neon-glow-cyan">
-        <div class="w-12 h-12 rounded-2xl bg-actnow-green/10 text-actnow-green flex items-center justify-center font-bold text-xl mb-6">2</div>
-        <h3 class="text-xl font-bold mb-3 text-white" data-i18n="why-2-title">Valós idejű követés</h3>
-        <p class="text-actnow-muted leading-relaxed" data-i18n="why-2-desc">Az applikációban azonnal nyomon követheted, pontosan hol tart a gyűjtés és mi valósult meg.</p>
-      </div>
-
-      <div class="glass-card p-8 rounded-3xl neon-glow-gold">
-        <div class="w-12 h-12 rounded-2xl bg-actnow-gold/10 text-actnow-gold flex items-center justify-center font-bold text-xl mb-6">3</div>
-        <h3 class="text-xl font-bold mb-3 text-white" data-i18n="why-3-title">Egyszerű cselekvés</h3>
-        <p class="text-actnow-muted leading-relaxed" data-i18n="why-3-desc">Pár kattintás az egész. Nincs felesleges papírmunka: cselekedj gyorsan, amikor számít.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOGYAN MŰKÖDIK? -->
-  <section class="bg-slate-950/60 py-24 border-y border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-actnow-green text-xs uppercase tracking-widest font-bold" data-i18n="steps-eyebrow">Folyamat</span>
-        <h2 class="text-4xl font-serif font-bold text-white mt-2" data-i18n="steps-title">3 lépés a segítségnyújtásig</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
-          <span class="text-actnow-cyan text-sm font-bold">01.</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3" data-i18n="step-1-title">Töltsd le az alkalmazást</h3>
-          <p class="text-actnow-muted text-sm leading-relaxed" data-i18n="step-1-desc">Regisztrálj másodpercek alatt az iOS eszközödön, és lépj be a közösségbe.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Átlátható jótékonyság a zsebedben</p>
+          <h1>Cselekedj most.<br /><span class="accent">Változtasd meg a holnapot.</span></h1>
+          <p class="lead">
+            Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok.
+            A történet itt a weben, a cselekvés az appban.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
+            <span class="badge-soon">Hamarosan Androidra is</span>
+            <a class="btn btn-ghost" href="#tortenet">A Szendrő-történet</a>
+          </div>
         </div>
-        <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
-          <span class="text-actnow-green text-sm font-bold">02.</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3" data-i18n="step-2-title">Válassz ügyet vagy ajánlj fel</h3>
-          <p class="text-actnow-muted text-sm leading-relaxed" data-i18n="step-2-desc">Böngéssz az ellenőrzött helyi kezdeményezések között, vagy hozz létre saját felajánlást.</p>
-        </div>
-        <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
-          <span class="text-actnow-gold text-sm font-bold">03.</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3" data-i18n="step-3-title">Kövesd az eredményt</h3>
-          <p class="text-actnow-muted text-sm leading-relaxed" data-i18n="step-3-desc">Lásd a valós idejű statisztikákat az appban, míg a részletes fotókat és hátteret itt a weben éred el.</p>
+        <div class="media-placeholder" aria-hidden="true">
+          ActNow app képernyő<br />
+          <small>Cseréld valódi screenshot-ra</small>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TÖRTÉNETÜNK & SZENDRŐ KAMPÁNY -->
-  <section id="tortenet" class="max-w-7xl mx-auto px-6 py-24">
-    <div id="szendro" class="glass-card rounded-3xl p-10 md:p-16 border border-actnow-cyan/20 grid md:grid-cols-12 gap-8 items-center">
-      <div class="md:col-span-8">
-        <span class="text-actnow-gold text-xs uppercase tracking-widest font-bold" data-i18n="szendro-eyebrow">Kiemelt Akció & Történet</span>
-        <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-2 mb-4" data-i18n="szendro-title">Szendrő — ahol már cselekedtünk</h2>
-        <p class="text-actnow-muted leading-relaxed mb-6" data-i18n="szendro-body">
-          Valódi adomány, dokumentált cselekvés, közösségi felújítás és közvetlen segítség a helyszínen. Nézd meg a teljes történet hátterét és az eddig elért eredményeket!
-        </p>
-        
-        <div class="flex flex-wrap gap-4">
-          <a href="https://actnowcharity.com/app/daily-donation" class="bg-actnow-green hover:bg-emerald-400 text-actnow-dark font-bold px-6 py-3 rounded-full transition text-sm" data-i18n="btn-szendro-app">
-            Megnyitás az Appban (Napi Adomány)
-          </a>
+    <section class="section" id="miert">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Előnyeink</p>
+          <h2>A transzparens segítségnyújtás platformja</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Közvetlen hatás</h3>
+            <p>Felajánlás és támogatás a helyi ügyhöz — nem elvont bürokrácia.</p>
+          </article>
+          <article class="card">
+            <h3>Valós idejű követés</h3>
+            <p>Az appban látod az átadásokat és a közösségi eredményeket.</p>
+          </article>
+          <article class="card">
+            <h3>Egyszerű cselekvés</h3>
+            <p>Pár lépés: fotó, helyszín, küldés — a részletes sztori a weben marad.</p>
+          </article>
         </div>
       </div>
-      <div class="md:col-span-4 flex justify-center">
-        <!-- Helyőrző Kép -->
-        <div class="w-full h-56 bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center text-actnow-muted text-sm text-center p-4">
-          <span data-i18n="szendro-img-placeholder">[ Szendrő Fotódokumentáció & Helyszíni Képek ]</span>
+    </section>
+
+    <section class="section section-muted" id="hogyan">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Folyamat</p>
+          <h2>3 lépés a változásig</h2>
+          <p class="lead">A web bemutat és becsatornáz. Licit, QR-beváltás és felajánlás csak az appban történik.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">Kezdj el cselekedni</a>
+            <a class="btn btn-ghost" href="actnow://offer" data-open-app="offer">Felajánlás az appban</a>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Töltsd le az appot</h3>
+              <p class="note">iOS már elérhető. Android hamarosan.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Válassz ügyet vagy ajánlj fel</h3>
+              <p class="note">Térkép, felajánlás, önkéntes átadás, napi QR ételadag.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>Kövesd az eredményt</h3>
+              <p class="note">Az appban a cselekvés, itt a dokumentált történet.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PARTNEREK SZEKCIÓ -->
-  <section id="partnerek" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800/60">
-    <div class="text-center mb-10">
-      <span class="text-actnow-cyan text-xs uppercase tracking-widest font-bold" data-i18n="partners-eyebrow">Összefogás</span>
-      <h3 class="text-2xl font-serif font-bold text-white mt-1" data-i18n="partners-title">Támogató Szervezetek és Partnerek</h3>
-    </div>
-
-    <!-- Partner Logó Helyőrzők -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-60">
-      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center font-bold text-slate-400">PARTNER 01</div>
-      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center font-bold text-slate-400">PARTNER 02</div>
-      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center font-bold text-slate-400">PARTNER 03</div>
-      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center font-bold text-slate-400">PARTNER 04</div>
-    </div>
-  </section>
-
-  <!-- SZERVEZETEKNEK (ONBOARDING) -->
-  <section id="szervezetek" class="max-w-7xl mx-auto px-6 py-24">
-    <div class="glass-card rounded-3xl p-10 md:p-16 border border-slate-800 text-center max-w-4xl mx-auto">
-      <span class="text-actnow-green text-xs uppercase tracking-widest font-bold" data-i18n="orgs-eyebrow">Hálózati Csatlakozás</span>
-      <h2 class="text-4xl font-serif font-bold text-white mt-2 mb-4" data-i18n="orgs-title">Szervezeteknek</h2>
-      <p class="text-actnow-muted leading-relaxed mb-8 max-w-2xl mx-auto" data-i18n="orgs-body">
-        Alapítványok, egyesületek, egyházak, iskolák — csatlakozzatok a hálózathoz. A koordináció és a napi munka az appban történik; itt ismerkedünk meg.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://actnowcharity.com/app/partner" class="bg-actnow-cyan text-actnow-dark font-bold px-8 py-3.5 rounded-full transition hover:bg-cyan-300 text-sm" data-i18n="btn-org-app">
-          Szervezeti regisztráció az appban
-        </a>
-        <a href="mailto:info@actnowcharity.com" class="border border-slate-700 hover:border-slate-500 text-white font-semibold px-8 py-3.5 rounded-full transition text-sm">
-          info@actnowcharity.com
-        </a>
+    <section class="section" id="tortenet">
+      <div class="container">
+        <p class="eyebrow">Küldős történet</p>
+        <h2>Történetünk</h2>
+        <p class="lead">Az ActNow nem ígéret — dokumentált cselekvés. Itt a helyszíni történetek; a napi munka az appban történik.</p>
+        <div class="timeline">
+          <article>
+            <h3>Szendrő — adomány és közösségi segítség</h3>
+            <p class="note">Valódi átadás, dokumentált együttműködés.</p>
+          </article>
+          <article>
+            <h3>Következő: hangszer-árverés</h3>
+            <p class="note">Licit csak az appban — <a href="actnow://auction" data-open-app="auction">actnow://auction</a></p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TRANSZPARENCIA BLURB -->
-  <section class="max-w-7xl mx-auto px-6 py-12 text-center text-actnow-muted text-sm max-w-3xl">
-    <h4 class="text-white font-bold mb-2" data-i18n="transparency-title">Átláthatóság és Módszertan</h4>
-    <p data-i18n="transparency-body">Az ActNow platformján minden felajánlás és projekt nyomon követhető. A weboldal a háttérinformációk és elszámolások otthona, míg az applikáció a közvetlen cselekvést szolgálja.</p>
-  </section>
+    <section class="section section-muted" id="szendro">
+      <div class="container">
+        <article class="card card-accent">
+          <p class="eyebrow">Valódi cselekvés</p>
+          <h2>Szendrő — ahol már cselekedtünk</h2>
+          <p class="lead">Dokumentált adomány és közösségi segítség. Ez a blokk a partnereknek és pályázatokhoz.</p>
+          <div class="media-placeholder" style="margin:1.5rem 0">Fotó / videó helye (Szendrő)</div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="actnow://offer" data-open-app="offer">Felajánlok az appban</a>
+            <a class="btn btn-ghost" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <!-- LÁBLÉC -->
-  <footer class="border-t border-slate-800 mt-16 py-12 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-actnow-muted">
+    <section class="section" id="partnerek">
+      <div class="container">
+        <div class="section-head">
+          <h2>Partnerek</h2>
+          <p>Velük dolgozunk.</p>
+        </div>
+        <div class="partners">
+          <span class="partner-chip">Interfood</span>
+          <span class="partner-chip">Buday Taekwon-do</span>
+          <span class="partner-chip">ENSZ / WFP · UNHCR (pályázat)</span>
+          <span class="partner-chip">ICR — hamarosan</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="szervezetek">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Szervezeteknek</p>
+          <h2>Csatlakozzatok a hálózathoz</h2>
+          <p class="lead">Alapítványok, egyesületek, egyházak, iskolák. A partner-regisztráció az ActNow appban történik.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="actnow://partner" data-open-app="partner">Regisztrálok az appban</a>
+            <a class="btn btn-ghost" href="mailto:info@actnowcharity.com?subject=ActNow%20szervezeti%20csatlakozás">Írok e-mailt</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Kapcsolat</h3>
+          <p><a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a></p>
+          <p class="note" style="margin-top:1rem">Deep linkek: actnow://offer · actnow://partner · actnow://daily-donation · actnow://auction</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="text-align:center">
+        <h2>Készen állsz cselekedni?</h2>
+        <p class="lead" style="margin-inline:auto">Töltsd le az appot.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">ActNow App letöltése</a>
+          <a class="btn btn-ghost" href="#szervezetek">Szervezeteknek</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
       <div>
-        <span class="text-white font-bold">ActNow Charity</span> &copy; 2026 — <span data-i18n="footer-rights">A cselekvő közösség.</span>
+        <a class="logo" href="#top"><span>Act</span>Now</a>
+        <p>© 2026 ActNow Charity<br />A cselekvő közösség.</p>
       </div>
-      <div class="flex flex-wrap gap-6 text-xs">
-        <a href="#tortenet" class="hover:text-white" data-i18n="nav-story">Történetünk</a>
-        <a href="#partnerek" class="hover:text-white" data-i18n="nav-partners">Partnerek</a>
-        <a href="#szervezetek" class="hover:text-white" data-i18n="nav-orgs">Szervezeteknek</a>
-        <a href="mailto:info@actnowcharity.com" class="hover:text-white">info@actnowcharity.com</a>
+      <div>
+        <div class="footer-title">Platform</div>
+        <a href="#tortenet">Történet</a>
+        <a href="#szendro">Szendrő</a>
+        <a href="#partnerek">Partnerek</a>
+        <a href="#szervezetek">Szervezetek</a>
+      </div>
+      <div>
+        <div class="footer-title">App</div>
+        <a href="actnow://offer" data-open-app="offer">Felajánlás</a>
+        <a href="actnow://daily-donation" data-open-app="daily-donation">Napi adomány</a>
+        <a href="actnow://auction" data-open-app="auction">Árverés</a>
+        <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
+      </div>
+      <div>
+        <div class="footer-title">Kapcsolat</div>
+        <a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a>
       </div>
     </div>
   </footer>
-
-  <!-- NYELVVÁLASZTÓ JAVASCRIPT -->
   <script>
-    const translations = {
-      hu: {
-        "nav-story": "Történetünk",
-        "nav-szendro": "Szendrő Kampány",
-        "nav-partners": "Partnerek",
-        "nav-orgs": "Szervezeteknek",
-        "btn-download": "App letöltése",
-        "hero-eyebrow": "Átlátható jótékonyság a zsebedben",
-        "hero-title-1": "Cselekedj most.",
-        "hero-title-2": "Változtasd meg a holnapot.",
-        "hero-lead": "Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok. A történet itt a weben, a cselekvés az appban.",
-        "android-badge": "⚙️ Hamarosan Androidra is",
-        "hero-story-link": "Teljes történet megtekintése →",
-        "why-title": "Miért az ActNow?",
-        "why-subtitle": "Valódi, dokumentált segítségnyújtás bürokrácia nélkül.",
-        "why-1-title": "Közvetlen hatás",
-        "why-1-desc": "Felajánlás és támogatás közvetlenül a helyi ügyhöz. Nincsenek elrejtett rendszerköltségek.",
-        "why-2-title": "Valós idejű követés",
-        "why-2-desc": "Az applikációban azonnal nyomon követheted, pontosan hol tart a gyűjtés és mi valósult meg.",
-        "why-3-title": "Egyszerű cselekvés",
-        "why-3-desc": "Pár kattintás az egész. Nincs felesleges papírmunka: cselekedj gyorsan, amikor számít.",
-        "steps-eyebrow": "Folyamat",
-        "steps-title": "3 lépés a segítségnyújtásig",
-        "step-1-title": "Töltsd le az alkalmazást",
-        "step-1-desc": "Regisztrálj másodpercek alatt az iOS eszközödön, és lépj be a közösségbe.",
-        "step-2-title": "Válassz ügyet vagy ajánlj fel",
-        "step-2-desc": "Böngéssz az ellenőrzött helyi kezdeményezések között, vagy hozz létre saját felajánlást.",
-        "step-3-title": "Kövesd az eredményt",
-        "step-3-desc": "Lásd a valós idejű statisztikákat az appban, míg a részletes fotókat és hátteret itt a weben éred el.",
-        "szendro-eyebrow": "Kiemelt Akció & Történet",
-        "szendro-title": "Szendrő — ahol már cselekedtünk",
-        "szendro-body": "Valódi adomány, dokumentált cselekvés, közösségi felújítás és közvetlen segítség a helyszínen. Nézd meg a teljes történet hátterét és az eddig elért eredményeket!",
-        "btn-szendro-app": "Megnyitás az Appban (Napi Adomány)",
-        "szendro-img-placeholder": "[ Szendrő Fotódokumentáció & Helyszíni Képek ]",
-        "partners-eyebrow": "Összefogás",
-        "partners-title": "Támogató Szervezetek és Partnerek",
-        "orgs-eyebrow": "Hálózati Csatlakozás",
-        "orgs-title": "Szervezeteknek",
-        "orgs-body": "Alapítványok, egyesületek, egyházak, iskolák — csatlakozzatok a hálózathoz. A koordináció és a napi munka az appban történik; itt ismerkedünk meg.",
-        "btn-org-app": "Szervezeti regisztráció az appban",
-        "transparency-title": "Átláthatóság és Módszertan",
-        "transparency-body": "Az ActNow platformján minden felajánlás és projekt nyomon követhető. A weboldal a háttérinformációk és elszámolások otthona, míg az applikáció a közvetlen cselekvést szolgálja.",
-        "footer-rights": "A cselekvő közösség."
-      },
-      en: {
-        "nav-story": "Our Story",
-        "nav-szendro": "Szendrő Campaign",
-        "nav-partners": "Partners",
-        "nav-orgs": "For Organizations",
-        "btn-download": "Download App",
-        "hero-eyebrow": "Transparent charity in your pocket",
-        "hero-title-1": "Act now.",
-        "hero-title-2": "Change tomorrow.",
-        "hero-lead": "ActNow connects people willing to help with real causes — donations, volunteering, local campaigns. The story is on the web, action in the app.",
-        "android-badge": "⚙️ Coming soon to Android",
-        "hero-story-link": "View full story →",
-        "why-title": "Why ActNow?",
-        "why-subtitle": "Real, documented help without bureaucracy.",
-        "why-1-title": "Direct Impact",
-        "why-1-desc": "Donations and support directly to the local cause. No hidden system fees.",
-        "why-2-title": "Real-time Tracking",
-        "why-2-desc": "Track progress in real time inside the app and see what has been achieved.",
-        "why-3-title": "Simple Action",
-        "why-3-desc": "Just a few taps. No unnecessary paperwork: act fast when it matters.",
-        "steps-eyebrow": "Process",
-        "steps-title": "3 steps to make an impact",
-        "step-1-title": "Download the app",
-        "step-1-desc": "Sign up in seconds on your iOS device and join the community.",
-        "step-2-title": "Choose a cause or offer",
-        "step-2-desc": "Browse verified local initiatives or create your own donation offer.",
-        "step-3-title": "Track the results",
-        "step-3-desc": "See real-time stats in the app, while accessing detailed photos and stories on the web.",
-        "szendro-eyebrow": "Featured Action & Story",
-        "szendro-title": "Szendrő — where we already acted",
-        "szendro-body": "Real donation, documented action, community renovation, and direct local aid. Check out the background and results achieved so far!",
-        "btn-szendro-app": "Open in App (Daily Donation)",
-        "szendro-img-placeholder": "[ Szendrő Photo Documentation & Local Pictures ]",
-        "partners-eyebrow": "Cooperation",
-        "partners-title": "Supporting Organizations & Partners",
-        "orgs-eyebrow": "Network Connection",
-        "orgs-title": "For Organizations",
-        "orgs-body": "Foundations, NGOs, churches, schools — join our network. Coordination and daily work happen in the app; we connect here.",
-        "btn-org-app": "Organization registration in app",
-        "transparency-title": "Transparency & Methodology",
-        "transparency-body": "Every project and donation is trackable on ActNow. The website hosts background info and accountability, while the app serves direct action.",
-        "footer-rights": "The active community."
-      }
-    };
+/**
+ * Open ActNow app via custom scheme, fall back to App Store.
+ * Usage: <a href="..." data-open-app="daily-donation"> or openActNowApp('redeem')
+ */
+(function () {
+  var APP_STORE =
+    "https://apps.apple.com/us/app/actnow-charity/id6778068435";
+  var SCHEME = "actnow://";
 
-    function switchLanguage(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
+  var HOST_MAP = {
+    "daily-donation": "daily-donation",
+    redeem: "redeem",
+    offer: "offer",
+    partner: "partner",
+    auction: "auction",
+    esg: "esg",
+    map: "map",
+    home: "home",
+  };
 
-      // Gombok stílusának frissítése
-      if (lang === 'hu') {
-        document.getElementById('lang-hu').className = "px-3 py-1 rounded-full text-actnow-cyan bg-slate-800 transition";
-        document.getElementById('lang-en').className = "px-3 py-1 rounded-full text-actnow-muted hover:text-white transition";
-      } else {
-        document.getElementById('lang-en').className = "px-3 py-1 rounded-full text-actnow-cyan bg-slate-800 transition";
-        document.getElementById('lang-hu').className = "px-3 py-1 rounded-full text-actnow-muted hover:text-white transition";
-      }
-    }
+  function storeUrl() {
+    return APP_STORE;
+  }
+
+  function openActNowApp(key) {
+    var host = HOST_MAP[key] || key;
+    var deep = SCHEME + host;
+    var fallbackTimer = setTimeout(function () {
+      window.location.href = storeUrl();
+    }, 1600);
+
+    window.location.href = deep;
+
+    // If page stays visible (desktop / no app), clear and show store button behaviour via timeout
+    window.addEventListener("pagehide", function () {
+      clearTimeout(fallbackTimer);
+    });
+    window.addEventListener("blur", function () {
+      clearTimeout(fallbackTimer);
+    });
+  }
+
+  window.openActNowApp = openActNowApp;
+  window.ACTNOW_APP_STORE = APP_STORE;
+
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-open-app]");
+    if (!el) return;
+    e.preventDefault();
+    openActNowApp(el.getAttribute("data-open-app"));
+  });
+
+  // Bridge pages: /app/<key>.html?auto=1
+  var auto = document.body && document.body.getAttribute("data-auto-open");
+  if (auto) {
+    openActNowApp(auto);
+  }
+})();
+
   </script>
-
 </body>
 </html>

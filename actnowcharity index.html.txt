@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActNow Charity – Cselekedj Most. Változtasd meg a holnapot.</title>
+    
+    <!-- Meta tegek SEO és megosztás számára -->
+    <meta name="description" content="Az ActNow jótékonysági applikáció összeköti a segíteni akarókat a valódi, átlátható ügyekkel. Töltsd le az appot és cselekedj!">
+    <meta property="og:title" content="ActNow Charity – Cselekedj Most">
+    <meta property="og:description" content="Átlátható jótékonyság a zsebedben. Kövesd a támogatások útját valós időben.">
+    <meta property="og:image" content="https://actnowcharity.com/og-image.jpg"> <!-- Cseréld le, ha van képed -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'actnow-green': {
+                            100: '#e1fbf1',
+                            500: '#10b981', // Fő szín (emerald-500)
+                            600: '#059669', // Sötétebb (emerald-600)
+                        },
+                        'actnow-dark': '#0f172a', // Sötét háttér (slate-900)
+                        'actnow-card': '#1e293b', // Kártyák háttérszíne (slate-800)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-actnow-dark text-slate-100 font-sans antialiased">
+
+    <!-- NAVIGÁCIÓ -->
+    <nav class="sticky top-0 z-50 bg-actnow-dark/95 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-3xl font-extrabold tracking-tighter text-actnow-green-500">Act</span>
+                <span class="text-3xl font-bold tracking-tight text-white">Now</span>
+            </a>
+            
+            <!-- Letöltés Gomb -->
+            <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer" 
+               class="bg-actnow-green-500 hover:bg-actnow-green-600 text-actnow-dark font-semibold px-6 py-2.5 rounded-full text-sm transition-all duration-200 shadow-lg shadow-actnow-green-500/20 hover:scale-105">
+                App Letöltése
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden bg-slate-950/50">
+        <!-- Háttér "fény" hatás -->
+        <div class="absolute -top-48 -left-48 w-96 h-96 bg-actnow-green-500/10 rounded-full blur-[128px]"></div>
+        <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-actnow-green-500/5 rounded-full blur-[128px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10 grid md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Bal oldali tartalom -->
+            <div class="md:col-span-7 text-center md:text-left">
+                <span class="inline-block bg-actnow-green-100 text-actnow-green-600 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
+                    A jótékonyság új dimenziója
+                </span>
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter leading-tight mb-8">
+                    Cselekedj most.<br>
+                    <span class="text-actnow-green-500">Változtasd meg a holnapot.</span>
+                </h1>
+                <p class="text-xl text-slate-300 max-w-2xl mx-auto md:mx-0 mb-12 leading-relaxed">
+                    Az ActNow összeköti a segíteni akarókat a valódi ügyekkel. Töltsd le az appot, kövesd a támogatások útját, és légy része a változásnak – gyorsan, átláthatóan, közvetlenül.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
+                    <!-- App Store Gomb -->
+                    <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center gap-3 bg-white hover:bg-slate-100 text-actnow-dark px-8 py-4 rounded-2xl transition duration-200 shadow-xl group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-10 group-hover:scale-105 transition-transform">
+                    </a>
+                    <!-- Belső link a részletekhez -->
+                    <a href="#hogyan-mukodik" class="flex items-center gap-2 text-slate-300 hover:text-white px-8 py-4 font-semibold group transition">
+                        Tudj meg többet
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Jobb oldali Mockup (Helyőrző) -->
+            <div class="md:col-span-5 relative flex justify-center items-center">
+                <!-- Mobiltelefon Mockup Keret (Tailwind-del) -->
+                <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-2xl shadow-actnow-green-500/10">
+                    <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                    <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                    <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-actnow-card flex flex-col items-center justify-center text-center p-6 border-4 border-slate-700">
+                        <!-- IDE KERÜLNE AZ APP KEZDŐKÉPERNYŐ FOTÓJA -->
+                        <span class="text-7xl mb-4">📲</span>
+                        <p class="text-slate-400 text-sm">Az ActNow app<br>pillanatképe</p>
+                    </div>
+                </div>
+                <!-- Díszítőelem: Absztrakt QR-kód helye -->
+                <div class="absolute -bottom-10 -left-10 bg-actnow-green-500 p-3 rounded-2xl shadow-lg rotate-12 hidden md:block">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" class="text-actnow-dark"><path d="M4 4h4v4H4V4zm6 0h10v10H10V4zM4 16h4v4H4v-4zm10 0h6v6h-6v-6zM16 10h2v2h-2v-2zm-6 2H8v2h2v-2z" fill="currentColor"/></svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ÉRTEKAJÁNLAT (MIÉRT ACTNOW?) -->
+    <section class="max-w-7xl mx-auto px-6 py-24 md:py-32" id="miert-actnow">
+        <div class="text-center mb-16 md:mb-24">
+            <span class="text-actnow-green-500 font-semibold tracking-widest uppercase">Előnyeink</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter mt-4">A transzparens segítségnyújtás platformja</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+            <!-- 1. Kártya -->
+            <div class="bg-actnow-card p-10 rounded-3xl border border-slate-800 group hover:border-actnow-green-500/30 transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-slate-700 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-actnow-green-100 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-actnow-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Közvetlen Hatás</h3>
+                <p class="text-slate-400 leading-relaxed">Nincsenek elrejtett költségek és bonyolult bürokrácia. Minden támogatás közvetlenül a kiválasztott ügyhöz vagy szervezethez jut el.</p>
+            </div>
+            <!-- 2. Kártya -->
+            <div class="bg-actnow-card p-10 rounded-3xl border border-slate-800 group hover:border-actnow-green-500/30 transition duration-300 transform hover:-translate-y-2 md:translate-y-6">
+                <div class="bg-slate-700 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-actnow-green-100 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-actnow-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Valós Idejű Követés</h3>
+                <p class="text-slate-400 leading-relaxed">Az applikációban pontosan nyomon követheted, hol tart a gyűjtés, és milyen eredményt ért el a hozzájárulásod.</p>
+            </div>
+            <!-- 3. Kártya -->
+            <div class="bg-actnow-card p-10 rounded-3xl border border-slate-800 group hover:border-actnow-green-500/30 transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-slate-700 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-actnow-green-100 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-actnow-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Egyszerű Kezelés</h3>
+                <p class="text-slate-400 leading-relaxed">Pár kattintás az egész. Az appot úgy terveztük, hogy a segítségnyújtás olyan egyszerű legyen, mint egy üzenetküldés.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOGYAN MŰKÖDIK? -->
+    <section class="bg-slate-950/30 py-24 md:py-32" id="hogyan-mukodik">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            
+            <div class="space-y-6">
+                <span class="text-actnow-green-500 font-semibold tracking-widest uppercase">Folyamat</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">3 egyszerű lépés a változásig</h2>
+                <p class="text-lg text-slate-400 leading-relaxed pb-6">Az ActNow weboldala és applikációja szimbiózisban működik: a bonyolult háttérinformációkat itt éred el, míg a cselekvést a zsebedben lévő app gyorsítja fel.</p>
+                
+                <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-actnow-green-500 hover:bg-actnow-green-600 text-actnow-dark font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 shadow-xl shadow-actnow-green-500/20">
+                    Kezdj el Cselekedni Most
+                </a>
+            </div>
+
+            <div class="relative space-y-10">
+                <!-- Vonal a lépések mögött -->
+                <div class="absolute left-[31px] top-6 bottom-6 w-0.5 bg-slate-700 z-0"></div>
+
+                <!-- Lépés 1 -->
+                <div class="flex items-start gap-8 relative z-10">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-actnow-green-500 text-actnow-dark flex items-center justify-center font-extrabold text-2xl shadow-lg shadow-actnow-green-500/20">1</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Töltsd le az alkalmazást</h4>
+                        <p class="text-slate-400">Hozz létre egy fiókot másodpercek alatt az iOS eszközödön.</p>
+                    </div>
+                </div>
+                <!-- Lépés 2 -->
+                <div class="flex items-start gap-8 relative z-10">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-actnow-green-500 text-actnow-dark flex items-center justify-center font-extrabold text-2xl shadow-lg shadow-actnow-green-500/20">2</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Válassz egy szívügyet</h4>
+                        <p class="text-slate-400">Böngéssz az ellenőrzött, aktív kampányok és jótékonysági kezdeményezések között.</p>
+                    </div>
+                </div>
+                <!-- Lépés 3 -->
+                <div class="flex items-start gap-8 relative z-10">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-actnow-green-500 text-actnow-dark flex items-center justify-center font-extrabold text-2xl shadow-lg shadow-actnow-green-500/20">3</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Cselekedj és kövesd az eredményt</h4>
+                        <p class="text-slate-400">Támogass, ossz meg, és lásd a valós idejű statisztikákat a saját profilodban.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- ÁTLÁTHATÓSÁG ÉS MÓDSZERTAN -->
+    <section class="max-w-7xl mx-auto px-6 py-24 md:py-32" id="transzparencia">
+        <div class="bg-actnow-card border border-slate-800 rounded-[3rem] p-12 md:p-16 relative overflow-hidden flex flex-col md:flex-row gap-12 items-center">
+            <!-- Háttér "fény" -->
+            <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-actnow-green-500/10 rounded-full blur-[100px]"></div>
+
+            <div class="md:w-2/3 relative z-10 text-center md:text-left">
+                <span class="text-actnow-green-500 font-semibold tracking-widest uppercase">Módszertan</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter mt-4 mb-6">Bizalom és Transzparencia</h2>
+                <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                    Hittünk abban, hogy a jótékonyságnak nem kell bonyolultnak lennie. Az ActNow platformját úgy alakítottuk ki, hogy a nehéz, adatintenzív tájékoztatást, elszámolásokat és a kampányok részletes hátterét itt, a weboldalon érhesd el, míg a mobilapplikáció megmarad egy könnyű, gyors és élvezetes eszköznek a mindennapi segítségnyújtáshoz.
+                </p>
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="#" class="text-actnow-green-500 hover:text-white font-semibold underline decoration-2 underline-offset-4">Részletes Partneri Feltételek</a>
+                    <a href="#" class="text-slate-400 hover:text-white font-semibold transition">Pénzügyi Elszámolások</a>
+                </div>
+            </div>
+            <div class="md:w-1/3 text-center text-[160px] md:text-[220px] relative z-10 leading-none opacity-20">
+                🤝
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION (Alsó) -->
+    <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight mb-12 max-w-2xl mx-auto">
+            Készen állsz, hogy megváltoztasd a holnapot?
+        </h2>
+        <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener noreferrer" 
+           class="bg-actnow-green-500 hover:bg-actnow-green-600 text-actnow-dark font-extrabold px-12 py-5 rounded-2xl text-lg transition duration-200 shadow-2xl shadow-actnow-green-500/20 hover:scale-105">
+            ActNow App Letöltése
+        </a>
+    </section>
+
+    <!-- LÁBLÉC (FOOTER) -->
+    <footer class="bg-slate-950/60 border-t border-slate-800 mt-24">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12 text-slate-500 text-sm">
+            
+            <div class="md:col-span-1">
+                <a href="#" class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl font-extrabold tracking-tighter text-actnow-green-500">Act</span>
+                    <span class="text-2xl font-bold tracking-tight text-white">Now</span>
+                </a>
+                <p>&copy; 2024 ActNow Charity.<br>A cselekvő közösség.</p>
+            </div>
+
+            <div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 text-right md:text-left">
+                <div class="space-y-3">
+                    <h5 class="font-semibold text-slate-300">Platform</h5>
+                    <a href="#miert-actnow" class="block hover:text-actnow-green-500 transition">Előnyeink</a>
+                    <a href="#hogyan-mukodik" class="block hover:text-actnow-green-500 transition">Működés</a>
+                    <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" class="block hover:text-actnow-green-500 transition">App Letöltése</a>
+                </div>
+                <div class="space-y-3">
+                    <h5 class="font-semibold text-slate-300">Jogi</h5>
+                    <a href="#" class="block hover:text-actnow-green-500 transition">Adatvédelmi Nyilatkozat</a>
+                    <a href="#" class="block hover:text-actnow-green-500 transition">ÁSZF</a>
+                </div>
+                <div class="space-y-3 col-span-2 md:col-span-1">
+                    <h5 class="font-semibold text-slate-300">Kapcsolat</h5>
+                    <a href="mailto:info@actnowcharity.com" class="block hover:text-actnow-green-500 transition">info@actnowcharity.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

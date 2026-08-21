@@ -4,730 +4,589 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ActNow Charity – Cselekedj most</title>
-  <meta name="description" content="Az ActNow összeköti a segíteni akarókat a valódi ügyekkel. Történet a weben, cselekvés az appban." />
-  <meta property="og:title" content="ActNow Charity – Cselekedj most" />
-  <meta property="og:description" content="Átlátható jótékonyság. Szendrő-történet, partnerek, app letöltés." />
+  <meta name="description" content="Átlátható jótékonyság. Történet a weben, cselekvés az ActNow appban." />
+  <meta property="og:title" content="ActNow Charity" />
+  <meta property="og:description" content="Mi lenne, ha a segítséged tényleg eljutna oda, ahol kell?" />
   <meta property="og:url" content="https://actnowcharity.com/" />
-  <meta property="og:type" content="website" />
   <link rel="canonical" href="https://actnowcharity.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-/* ActNow Charity — matches mobile app brand */
-:root {
-  --bg: #020617;
-  --bg-elevated: #0f172a;
-  --card: rgba(15, 23, 42, 0.88);
-  --cyan: #22d3ee;
-  --cyan-soft: #67e8f9;
-  --green: #34d399;
-  --gold: #f5c842;
-  --cream: #f1f5f9;
-  --muted: #94a3b8;
-  --border: rgba(148, 163, 184, 0.18);
-  --radius: 1.25rem;
-  --max: 72rem;
-  --font-display: "Cormorant Garamond", "Times New Roman", serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--cream);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: var(--cyan);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--cyan-soft);
-}
-
-.container {
-  width: min(100% - 2rem, var(--max));
-  margin-inline: auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(2, 6, 23, 0.92);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-}
-
-.logo {
-  display: flex;
-  align-items: baseline;
-  gap: 0.2rem;
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  line-height: 1;
-  color: var(--cream);
-}
-
-.logo span {
-  color: var(--cyan);
-  font-weight: 600;
-}
-
-.nav-links {
-  display: none;
-  gap: 1.25rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 500;
-}
-
-.nav-links a:hover {
-  color: var(--cream);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border: 0;
-  border-radius: 999px;
-  padding: 0.75rem 1.25rem;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary {
-  background: var(--cyan);
-  color: #020617;
-}
-
-.btn-primary:hover {
-  background: var(--cyan-soft);
-  color: #020617;
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--cream);
-  border: 1px solid var(--border);
-}
-
-.btn-ghost:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-}
-
-.btn-gold {
-  background: rgba(245, 200, 66, 0.15);
-  color: var(--gold);
-  border: 1px solid rgba(245, 200, 66, 0.45);
-}
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 4.5rem 0 3.5rem;
-}
-
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(90px);
-  pointer-events: none;
-}
-
-.hero::before {
-  width: 22rem;
-  height: 22rem;
-  background: rgba(34, 211, 238, 0.12);
-  top: -6rem;
-  left: -4rem;
-}
-
-.hero::after {
-  width: 18rem;
-  height: 18rem;
-  background: rgba(52, 211, 153, 0.1);
-  bottom: -4rem;
-  right: -2rem;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 1rem;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 0 0 1rem;
-}
-
-h1 {
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
-  letter-spacing: -0.02em;
-}
-
-h1 .accent {
-  color: var(--cyan);
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-}
-
-.lead {
-  font-size: 1.125rem;
-  color: var(--muted);
-  max-width: 38rem;
-  margin: 0 0 1.75rem;
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.badge-soon {
-  font-size: 0.8rem;
-  color: var(--muted);
-  border: 1px dashed var(--border);
-  border-radius: 999px;
-  padding: 0.55rem 0.9rem;
-}
-
-.section {
-  padding: 4rem 0;
-}
-
-.section-muted {
-  background: rgba(15, 23, 42, 0.45);
-}
-
-.section-head {
-  margin-bottom: 2rem;
-}
-
-.section-head p {
-  color: var(--muted);
-  max-width: 40rem;
-}
-
-.grid-3 {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-}
-
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.card-accent {
-  border-color: rgba(34, 211, 238, 0.35);
-}
-
-.steps {
-  display: grid;
-  gap: 1rem;
-}
-
-.step {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.step-num {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 999px;
-  background: var(--cyan);
-  color: #020617;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-}
-
-.timeline {
-  display: grid;
-  gap: 1.25rem;
-  border-left: 2px solid rgba(34, 211, 238, 0.35);
-  padding-left: 1.25rem;
-}
-
-.timeline article {
-  position: relative;
-}
-
-.timeline article::before {
-  content: "";
-  position: absolute;
-  left: -1.7rem;
-  top: 0.45rem;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 999px;
-  background: var(--green);
-  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
-}
-
-.partners {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.partner-chip {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.55rem 1rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 3rem 0 2rem;
-  margin-top: 2rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.footer-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.footer-grid a {
-  color: var(--muted);
-  display: block;
-  margin: 0.35rem 0;
-}
-
-.footer-grid a:hover {
-  color: var(--cyan);
-}
-
-.footer-title {
-  color: var(--cream);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.media-placeholder {
-  border: 1px dashed rgba(34, 211, 238, 0.35);
-  border-radius: var(--radius);
-  min-height: 12rem;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  background: rgba(15, 23, 42, 0.6);
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.form {
-  display: grid;
-  gap: 0.85rem;
-  max-width: 32rem;
-}
-
-.form label {
-  display: grid;
-  gap: 0.35rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.form input,
-.form textarea,
-.form select {
-  width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid var(--border);
-  background: rgba(2, 6, 23, 0.7);
-  color: var(--cream);
-  padding: 0.75rem 0.9rem;
-  font: inherit;
-}
-
-.note {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.bridge {
-  min-height: 70vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.bridge .card {
-  max-width: 28rem;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  }
-
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-  }
-}
-
+    :root {
+      --bg: #050505;
+      --bg-2: #0c0c0c;
+      --green: #5eff78;
+      --green-dim: rgba(94, 255, 120, 0.14);
+      --green-glow: rgba(94, 255, 120, 0.45);
+      --white: #ffffff;
+      --muted: #a3a3a3;
+      --line: rgba(255, 255, 255, 0.14);
+      --radius: 1.75rem;
+      --font: "Sora", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(100% - 2rem, 72rem);
+      margin-inline: auto;
+    }
+
+    /* —— Header —— */
+    .top {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 40;
+      padding: 1rem 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,0));
+    }
+    .top-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-mark {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.55rem;
+      background: var(--green);
+      color: #000;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    .brand small {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+    .nav {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nav a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .nav a:hover { color: var(--white); }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 999px;
+      border: 0;
+      padding: 0.85rem 1.35rem;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-green {
+      background: var(--green);
+      color: #041008;
+      box-shadow: 0 0 40px var(--green-glow);
+    }
+    .btn-green:hover { filter: brightness(1.05); color: #041008; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--white); }
+    .btn-lg {
+      padding: 1.05rem 1.7rem;
+      font-size: 1.05rem;
+    }
+    .icon-btn {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: rgba(0,0,0,.35);
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .photo-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0.35rem;
+      padding: 0.35rem;
+      opacity: 0.55;
+    }
+    .photo-grid span {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+        var(--img) center / cover no-repeat;
+      border-radius: 0.75rem;
+      filter: grayscale(0.35) brightness(0.45);
+    }
+    .hero-veil {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 45%, rgba(0,0,0,.15), rgba(0,0,0,.88) 70%),
+        linear-gradient(to bottom, rgba(0,0,0,.55), rgba(5,5,5,.95));
+    }
+    .hero-copy {
+      width: min(100% - 2rem, 48rem);
+      text-align: center;
+      padding: 7rem 0 4rem;
+      animation: rise .9s ease both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin: 0 0 1.1rem;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5.6vw, 3.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      font-weight: 800;
+    }
+    .glow-line {
+      width: min(22rem, 70%);
+      height: 2px;
+      margin: 1.35rem auto 1.5rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      box-shadow: 0 0 24px var(--green-glow), 0 0 60px var(--green-glow);
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .65; filter: blur(0); }
+      50% { opacity: 1; filter: blur(0.3px); }
+    }
+    .hero-lead {
+      margin: 0 auto 1.75rem;
+      max-width: 34rem;
+      color: rgba(255,255,255,.88);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 500;
+    }
+    .trust {
+      margin-top: 1.1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* —— Sections —— */
+    section.block {
+      padding: 5.5rem 0;
+      background: var(--bg);
+    }
+    .section-kicker {
+      color: var(--green);
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 1rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      max-width: 40rem;
+      margin: 0 auto 2.75rem;
+    }
+
+    .compare {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 900px) {
+      .compare {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: stretch;
+      }
+      .nav { display: flex; }
+    }
+    .panel {
+      border-radius: calc(var(--radius) + 0.4rem);
+      padding: 1rem;
+      min-height: 22rem;
+    }
+    .panel-after {
+      background: var(--green);
+      color: #041008;
+    }
+    .panel-before {
+      background: #161616;
+      border: 1px solid var(--line);
+    }
+    .panel-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0.35rem 0.5rem 0.9rem;
+      opacity: 0.85;
+    }
+    .cards {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .cards { grid-template-columns: 1fr 1fr; }
+    }
+    .shot {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      min-height: 15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.1rem;
+      background: center / cover no-repeat;
+      color: #fff;
+    }
+    .shot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.82));
+    }
+    .shot > * { position: relative; z-index: 1; }
+    .shot-icon {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      z-index: 2;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 0.7rem;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: 1rem;
+    }
+    .shot h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .shot p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,.82);
+    }
+    .panel-after .shot {
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .story {
+      border-radius: var(--radius);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      background: #101010;
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 800px) {
+      .story { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+    }
+    .story h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+    }
+    .story p { color: var(--muted); margin: 0 0 1.25rem; }
+    .story-visual {
+      min-height: 14rem;
+      border-radius: 1.25rem;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=70") center / cover;
+      filter: grayscale(0.2) brightness(0.75);
+    }
+
+    .cta-band {
+      text-align: center;
+      padding: 4rem 0 5rem;
+    }
+    .cta-band h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.03em;
+      margin: 0 0 0.75rem;
+    }
+    .cta-band p { color: var(--muted); margin: 0 0 1.5rem; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .foot a:hover { color: var(--green); }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .soon {
+      display: inline-flex;
+      align-items: center;
+      border: 1px dashed var(--line);
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="#top"><span>Act</span>Now</a>
-      <nav class="nav-links" aria-label="Főmenü">
-        <a href="#tortenet">Történet</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">A</span>
+        <span>
+          ActNow
+          <small>Cselekvő közösség</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Menü">
+        <a href="#mi-ez">Mi az az ActNow?</a>
+        <a href="#hogyan">Hogyan működik?</a>
         <a href="#szendro">Szendrő</a>
-        <a href="#partnerek">Partnerek</a>
-        <a href="#szervezetek">Szervezetek</a>
       </nav>
-      <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése</a>
+      <div class="top-actions">
+        <a class="btn btn-ghost" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése</a>
+        <a class="icon-btn" href="mailto:info@actnowcharity.com" aria-label="Kapcsolat" title="Kapcsolat">✉</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Átlátható jótékonyság a zsebedben</p>
-          <h1>Cselekedj most.<br /><span class="accent">Változtasd meg a holnapot.</span></h1>
-          <p class="lead">
-            Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok.
-            A történet itt a weben, a cselekvés az appban.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
-            <span class="badge-soon">Hamarosan Androidra is</span>
-            <a class="btn btn-ghost" href="#tortenet">A Szendrő-történet</a>
-          </div>
-        </div>
-        <div class="media-placeholder" aria-hidden="true">
-          ActNow app képernyő<br />
-          <small>Cseréld valódi screenshot-ra</small>
-        </div>
+    <section class="hero" aria-label="Fő üzenet">
+      <div class="photo-grid" aria-hidden="true">
+        <span style="--img:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=60')"></span>
+        <span style="--img:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=60')"></span>
+        <span style="--img:url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=900&q=60')"></span>
+        <span style="--img:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=60')"></span>
+        <span style="--img:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=60')"></span>
+        <span style="--img:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=900&q=60')"></span>
+      </div>
+      <div class="hero-veil"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Hamarosan Androidon is — iOS-en már él</p>
+        <h1>Mi lenne, ha a segítséged tényleg eljutna oda, ahol kell?</h1>
+        <div class="glow-line" aria-hidden="true"></div>
+        <p class="hero-lead">
+          Közös cselekvés ígéret helyett. Valódi megoldás arra, hogy együtt formáljuk a körülöttünk lévő világot.
+        </p>
+        <a class="btn btn-green btn-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">
+          <span aria-hidden="true">＋</span> Az elsők között csatlakoznék
+        </a>
+        <div class="trust"><span aria-hidden="true">🛡</span> Átlátható hatás. Nincs spam, nincs zaj.</div>
       </div>
     </section>
 
-    <section class="section" id="miert">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Előnyeink</p>
-          <h2>A transzparens segítségnyújtás platformja</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <h3>Közvetlen hatás</h3>
-            <p>Felajánlás és támogatás a helyi ügyhöz — nem elvont bürokrácia.</p>
-          </article>
-          <article class="card">
-            <h3>Valós idejű követés</h3>
-            <p>Az appban látod az átadásokat és a közösségi eredményeket.</p>
-          </article>
-          <article class="card">
-            <h3>Egyszerű cselekvés</h3>
-            <p>Pár lépés: fotó, helyszín, küldés — a részletes sztori a weben marad.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="hogyan">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Folyamat</p>
-          <h2>3 lépés a változásig</h2>
-          <p class="lead">A web bemutat és becsatornáz. Licit, QR-beváltás és felajánlás csak az appban történik.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">Kezdj el cselekedni</a>
-            <a class="btn btn-ghost" href="actnow://offer" data-open-app="offer">Felajánlás az appban</a>
-          </div>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div>
-              <h3>Töltsd le az appot</h3>
-              <p class="note">iOS már elérhető. Android hamarosan.</p>
+    <section class="block" id="mi-ez">
+      <div class="wrap">
+        <p class="section-kicker">Mi az az ActNow?</p>
+        <h2 class="section-title">A történet a weben. A cselekvés az appban.</h2>
+        <div class="compare">
+          <div class="panel panel-after">
+            <p class="panel-label">ActNow-val</p>
+            <div class="cards">
+              <article class="shot" style="background-image:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=70')">
+                <span class="shot-icon">◎</span>
+                <h3>Dokumentált hatás</h3>
+                <p>Látod, hova jut az adomány — nem vész el a zajban.</p>
+              </article>
+              <article class="shot" style="background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=70')">
+                <span class="shot-icon">◇</span>
+                <h3>Helyi cselekvés</h3>
+                <p>Felajánlás, átadás, önkéntesség — pár lépésben.</p>
+              </article>
             </div>
           </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div>
-              <h3>Válassz ügyet vagy ajánlj fel</h3>
-              <p class="note">Térkép, felajánlás, önkéntes átadás, napi QR ételadag.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div>
-              <h3>Kövesd az eredményt</h3>
-              <p class="note">Az appban a cselekvés, itt a dokumentált történet.</p>
+          <div class="panel panel-before">
+            <p class="panel-label">Nélküle</p>
+            <div class="cards">
+              <article class="shot" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=70')">
+                <span class="shot-icon">✕</span>
+                <h3>Ígéret a zajban</h3>
+                <p>Sok kampány, kevés visszajelzés — nehéz hinni.</p>
+              </article>
+              <article class="shot" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=70')">
+                <span class="shot-icon">✕</span>
+                <h3>Széteső segítség</h3>
+                <p>Szervezetek és adakozók nem találják egymást időben.</p>
+              </article>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="tortenet">
-      <div class="container">
-        <p class="eyebrow">Küldős történet</p>
-        <h2>Történetünk</h2>
-        <p class="lead">Az ActNow nem ígéret — dokumentált cselekvés. Itt a helyszíni történetek; a napi munka az appban történik.</p>
-        <div class="timeline">
-          <article>
-            <h3>Szendrő — adomány és közösségi segítség</h3>
-            <p class="note">Valódi átadás, dokumentált együttműködés.</p>
+    <section class="block" id="hogyan" style="padding-top:0">
+      <div class="wrap">
+        <p class="section-kicker">Hogyan működik?</p>
+        <h2 class="section-title">Nálunk nem a leghangosabb kampány győz. Nálunk minden cselekvés számít.</h2>
+        <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem">
+          <article class="shot" style="min-height:17rem;background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=70')">
+            <span class="shot-icon">1</span>
+            <h3>Töltsd le az appot</h3>
+            <p>iOS él. Android hamarosan.</p>
           </article>
-          <article>
-            <h3>Következő: hangszer-árverés</h3>
-            <p class="note">Licit csak az appban — <a href="actnow://auction" data-open-app="auction">actnow://auction</a></p>
+          <article class="shot" style="min-height:17rem;background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=70')">
+            <span class="shot-icon">2</span>
+            <h3>Ajánlj fel vagy csatlakozz</h3>
+            <p>Felajánlás, napi adomány, szervezet — az appban.</p>
           </article>
+          <article class="shot" style="min-height:17rem;background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=70')">
+            <span class="shot-icon">3</span>
+            <h3>Kövesd a hatást</h3>
+            <p>A sztori itt a weben, az átadás az appban.</p>
+          </article>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem">
+          <a class="btn btn-green" href="actnow://offer" data-open-app="offer">Felajánlás az appban</a>
+          <a class="btn btn-ghost" href="actnow://partner" data-open-app="partner">Szervezetként csatlakozom</a>
+          <span class="soon">Hamarosan Android</span>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="szendro">
-      <div class="container">
-        <article class="card card-accent">
-          <p class="eyebrow">Valódi cselekvés</p>
-          <h2>Szendrő — ahol már cselekedtünk</h2>
-          <p class="lead">Dokumentált adomány és közösségi segítség. Ez a blokk a partnereknek és pályázatokhoz.</p>
-          <div class="media-placeholder" style="margin:1.5rem 0">Fotó / videó helye (Szendrő)</div>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="actnow://offer" data-open-app="offer">Felajánlok az appban</a>
-            <a class="btn btn-ghost" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
+    <section class="block" id="szendro" style="padding-top:1rem">
+      <div class="wrap">
+        <article class="story">
+          <div>
+            <p class="section-kicker" style="text-align:left">Valódi cselekvés</p>
+            <h2>Szendrő — ahol már cselekedtünk</h2>
+            <p>
+              Dokumentált adomány és közösségi segítség. Ez a blokk a partnereknek és pályázatokhoz —
+              a licit és a felajánlás továbbra is csak az ActNow appban történik.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+              <a class="btn btn-green" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése</a>
+              <a class="btn btn-ghost" href="mailto:info@actnowcharity.com">Kapcsolat</a>
+            </div>
           </div>
+          <div class="story-visual" role="img" aria-label="Közösségi segítség"></div>
         </article>
       </div>
     </section>
 
-    <section class="section" id="partnerek">
-      <div class="container">
-        <div class="section-head">
-          <h2>Partnerek</h2>
-          <p>Velük dolgozunk.</p>
-        </div>
-        <div class="partners">
-          <span class="partner-chip">Interfood</span>
-          <span class="partner-chip">Buday Taekwon-do</span>
-          <span class="partner-chip">ENSZ / WFP · UNHCR (pályázat)</span>
-          <span class="partner-chip">ICR — hamarosan</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="szervezetek">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Szervezeteknek</p>
-          <h2>Csatlakozzatok a hálózathoz</h2>
-          <p class="lead">Alapítványok, egyesületek, egyházak, iskolák. A partner-regisztráció az ActNow appban történik.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="actnow://partner" data-open-app="partner">Regisztrálok az appban</a>
-            <a class="btn btn-ghost" href="mailto:info@actnowcharity.com?subject=ActNow%20szervezeti%20csatlakozás">Írok e-mailt</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Kapcsolat</h3>
-          <p><a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a></p>
-          <p class="note" style="margin-top:1rem">Deep linkek: actnow://offer · actnow://partner · actnow://daily-donation · actnow://auction</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container" style="text-align:center">
+    <section class="cta-band">
+      <div class="wrap">
         <h2>Készen állsz cselekedni?</h2>
-        <p class="lead" style="margin-inline:auto">Töltsd le az appot.</p>
-        <div class="cta-row" style="justify-content:center">
-          <a class="btn btn-primary" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">ActNow App letöltése</a>
-          <a class="btn btn-ghost" href="#szervezetek">Szervezeteknek</a>
-        </div>
+        <p>Töltsd le az ActNow appot — iOS-en már elérhető.</p>
+        <a class="btn btn-green btn-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">Az elsők között csatlakoznék</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
+  <footer>
+    <div class="wrap foot">
       <div>
-        <a class="logo" href="#top"><span>Act</span>Now</a>
-        <p>© 2026 ActNow Charity<br />A cselekvő közösség.</p>
+        <strong style="color:#fff">ActNow Charity</strong><br />
+        © 2026 · <a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a>
       </div>
-      <div>
-        <div class="footer-title">Platform</div>
-        <a href="#tortenet">Történet</a>
+      <div class="foot-links">
+        <a href="#mi-ez">Mi ez?</a>
+        <a href="#hogyan">Hogyan?</a>
         <a href="#szendro">Szendrő</a>
-        <a href="#partnerek">Partnerek</a>
-        <a href="#szervezetek">Szervezetek</a>
-      </div>
-      <div>
-        <div class="footer-title">App</div>
-        <a href="actnow://offer" data-open-app="offer">Felajánlás</a>
         <a href="actnow://daily-donation" data-open-app="daily-donation">Napi adomány</a>
         <a href="actnow://auction" data-open-app="auction">Árverés</a>
-        <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
-      </div>
-      <div>
-        <div class="footer-title">Kapcsolat</div>
-        <a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a>
       </div>
     </div>
   </footer>
+
   <script>
-/**
- * Open ActNow app via custom scheme, fall back to App Store.
- * Usage: <a href="..." data-open-app="daily-donation"> or openActNowApp('redeem')
- */
-(function () {
-  var APP_STORE =
-    "https://apps.apple.com/us/app/actnow-charity/id6778068435";
-  var SCHEME = "actnow://";
-
-  var HOST_MAP = {
-    "daily-donation": "daily-donation",
-    redeem: "redeem",
-    offer: "offer",
-    partner: "partner",
-    auction: "auction",
-    esg: "esg",
-    map: "map",
-    home: "home",
-  };
-
-  function storeUrl() {
-    return APP_STORE;
-  }
-
-  function openActNowApp(key) {
-    var host = HOST_MAP[key] || key;
-    var deep = SCHEME + host;
-    var fallbackTimer = setTimeout(function () {
-      window.location.href = storeUrl();
-    }, 1600);
-
-    window.location.href = deep;
-
-    // If page stays visible (desktop / no app), clear and show store button behaviour via timeout
-    window.addEventListener("pagehide", function () {
-      clearTimeout(fallbackTimer);
+  (function () {
+    var APP_STORE = "https://apps.apple.com/us/app/actnow-charity/id6778068435";
+    var MAP = {
+      "daily-donation": "daily-donation",
+      redeem: "redeem",
+      offer: "offer",
+      partner: "partner",
+      auction: "auction"
+    };
+    function openApp(key) {
+      var host = MAP[key] || key;
+      var t = setTimeout(function () { location.href = APP_STORE; }, 1600);
+      window.addEventListener("pagehide", function () { clearTimeout(t); });
+      window.addEventListener("blur", function () { clearTimeout(t); });
+      location.href = "actnow://" + host;
+    }
+    document.addEventListener("click", function (e) {
+      var el = e.target.closest("[data-open-app]");
+      if (!el) return;
+      e.preventDefault();
+      openApp(el.getAttribute("data-open-app"));
     });
-    window.addEventListener("blur", function () {
-      clearTimeout(fallbackTimer);
-    });
-  }
-
-  window.openActNowApp = openActNowApp;
-  window.ACTNOW_APP_STORE = APP_STORE;
-
-  document.addEventListener("click", function (e) {
-    var el = e.target.closest("[data-open-app]");
-    if (!el) return;
-    e.preventDefault();
-    openActNowApp(el.getAttribute("data-open-app"));
-  });
-
-  // Bridge pages: /app/<key>.html?auto=1
-  var auto = document.body && document.body.getAttribute("data-auto-open");
-  if (auto) {
-    openActNowApp(auto);
-  }
-})();
-
+  })();
   </script>
 </body>
 </html>

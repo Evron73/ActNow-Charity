@@ -1,0 +1,250 @@
+.hdr-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.share-trigger {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid #3a3a3a;
+  background: #0a0a0a;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .15s border-color, .15s box-shadow, .15s transform, .15s background;
+  flex-shrink: 0;
+  padding: 0;
+}
+.share-trigger svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.share-trigger:hover {
+  border-color: var(--neon);
+  background: rgba(184, 255, 46, .08);
+  box-shadow: 0 0 22px var(--neon-glow);
+  transform: translateY(-1px);
+  color: var(--neon);
+}
+
+.share-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .82);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .22s ease, visibility .22s;
+}
+.share-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+.share-modal {
+  position: relative;
+  width: min(400px, 100%);
+  max-height: min(92vh, 740px);
+  overflow: auto;
+  border-radius: 28px;
+  border: 1px solid #2a2a2a;
+  background: #0c0c0c;
+  padding: 16px 16px 24px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .7), 0 0 50px rgba(184, 255, 46, .1);
+  transform: translateY(14px) scale(.97);
+  transition: transform .24s ease;
+  text-align: center;
+}
+.share-backdrop.open .share-modal {
+  transform: translateY(0) scale(1);
+}
+.share-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.share-close:hover { border-color: var(--neon); color: var(--neon); }
+
+.share-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 260px;
+  background: #111 center/cover no-repeat;
+  border: 1px solid #222;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.share-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.92) 100%),
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(184,255,46,.18), transparent 60%);
+}
+.share-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: 18px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.share-card-top { display: flex; flex-direction: column; gap: 14px; }
+.share-card-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 15px;
+}
+.share-card-logo .mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--neon), #22d3ee);
+  color: #04100a;
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 16px var(--neon-glow);
+}
+.share-card h3 {
+  margin: 0;
+  font-size: clamp(1.2rem, 4.2vw, 1.55rem);
+  line-height: 1.22;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  max-width: 16ch;
+  position: relative;
+}
+.share-card h3 em {
+  font-style: normal;
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow);
+  position: relative;
+}
+.share-card h3 em::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -2px;
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(184,255,46,.55), transparent 70%);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: share-glow 2.4s ease-in-out infinite;
+}
+@keyframes share-glow {
+  0%, 100% { opacity: .45; transform: scaleX(.85); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+}
+.share-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.share-badges span {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.14);
+  color: #eee;
+  backdrop-filter: blur(8px);
+}
+.share-url-pill {
+  align-self: flex-start;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(184,255,46,.16);
+  border: 1px solid rgba(184,255,46,.4);
+  color: var(--neon);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  box-shadow: 0 0 18px rgba(184,255,46,.2);
+}
+
+.share-kicker {
+  margin: 0 0 8px;
+  color: var(--neon);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-shadow: 0 0 16px var(--neon-glow);
+}
+.share-title {
+  margin: 0 auto 20px;
+  max-width: 22ch;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #fff;
+}
+.share-btns {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.share-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #161616;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .15s border-color, .15s background, .15s box-shadow, .15s color;
+  padding: 0;
+}
+.share-btn:hover {
+  border-color: rgba(184,255,46,.55);
+  background: rgba(184,255,46,.08);
+  box-shadow: 0 0 20px rgba(184,255,46,.25);
+  color: var(--neon);
+}
+.share-btn svg { width: 20px; height: 20px; display: block; }
+.share-btn.copied {
+  border-color: var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 22px var(--neon-glow);
+}
+.share-btn-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+@media (max-width: 720px) {
+  .share-modal { padding: 14px 14px 20px; border-radius: 22px; }
+  .share-card { min-height: 220px; }
+  .share-card-inner { min-height: 220px; }
+}

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActNow Charity — Cselekedj most. Változtasd meg a holnapot.</title>
+  <meta name="description" content="Az ActNow összeköti a segíteni akarókat a valódi ügyekkel. Felajánlás, önkéntesség, helyi kampányok és átlátható eredmények egyetlen alkalmazásban." />
+  <meta name="keywords" content="ActNow, jótékonyság, adományozás, önkéntesség, charity, Magyarország, támogatás" />
+  <meta property="og:title" content="ActNow Charity — Cselekedj most." />
+  <meta property="og:description" content="Valódi ügyek. Valódi cselekvés. Átlátható eredmények." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://actnowcharity.com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:site_name" content="ActNow Charity" />
+  <link rel="canonical" href="https://actnowcharity.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/share.css?v=2" />
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #141414;
+      --neon: #b8ff2e;
+      --neon-glow: rgba(184, 255, 46, 0.55);
+      --cyan: #22d3ee;
+      --gold: #f5c842;
+      --white: #fff;
+      --muted: #9ca3af;
+      --line: rgba(255,255,255,.12);
+      --font: Inter, system-ui, sans-serif;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    .shell { width: min(var(--max), calc(100% - 2rem)); margin-inline: auto; }
+
+    /* NAV */
+    .hdr { position: fixed; inset: 0 0 auto; z-index: 100; padding: 14px 0; background: linear-gradient(#000c, #0000); backdrop-filter: blur(12px); }
+    .hdr-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+    .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--neon), var(--cyan)); color: #04100a; font-weight: 800; font-size: 13px; display: grid; place-items: center; box-shadow: 0 0 24px var(--neon-glow); }
+    .logo span.accent { color: var(--neon); }
+    .nav-links { display: none; gap: 1.4rem; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #fff; }
+    .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: 14px; border: 1px solid transparent; transition: .15s transform, .15s filter; }
+    .pill:hover { transform: translateY(-1px); }
+    .pill-neon { background: var(--neon); color: #0a1400; box-shadow: 0 0 36px var(--neon-glow); }
+    .pill-neon:hover { filter: brightness(1.06); color: #0a1400; }
+    .pill-outline { background: #0a0a0a; border-color: #3a3a3a; color: #fff; }
+    .pill-lg { padding: 15px 26px; font-size: 15px; }
+    .pill-link { background: transparent; color: var(--neon); padding: 11px 0; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; overflow: hidden; isolation: isolate; }
+    .mosaic { position: absolute; inset: 0; z-index: -2; display: grid; grid-template-columns: repeat(6,1fr); grid-template-rows: repeat(3,1fr); gap: 6px; padding: 6px; }
+    .mosaic b { display: block; border-radius: 10px; background: center/cover no-repeat; filter: saturate(.75) brightness(.38); }
+    .mosaic b:nth-child(1){grid-column:1/3;grid-row:1/3;background-image:url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=60')}
+    .mosaic b:nth-child(2){grid-column:3/5;background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=60')}
+    .mosaic b:nth-child(3){grid-column:5/7;background-image:url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=60')}
+    .mosaic b:nth-child(4){grid-column:3/4;grid-row:2/4;background-image:url('https://images.unsplash.com/photo-1459749411177-0415448065dc?auto=format&fit=crop&w=700&q=60')}
+    .mosaic b:nth-child(5){grid-column:4/6;grid-row:2/3;background-image:url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=60')}
+    .mosaic b:nth-child(6){grid-column:6/7;grid-row:2/4;background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=60')}
+    .mosaic b:nth-child(7){grid-column:1/3;grid-row:3/4;background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=60')}
+    .mosaic b:nth-child(8){grid-column:4/6;grid-row:3/4;background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=60')}
+    .veil { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 55% 40% at 50% 42%, rgba(0,0,0,.05), rgba(0,0,0,.78) 70%), linear-gradient(#0008, #050505 92%); }
+    .hero-inner { width: min(780px, calc(100% - 2rem)); text-align: center; padding: 110px 0 80px; }
+    .kicker { color: var(--neon); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1.1rem; text-shadow: 0 0 24px var(--neon-glow); }
+    .hero h1 { margin: 0; font-size: clamp(2.2rem, 5.5vw, 3.8rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; }
+    .hero h1 .hl { color: var(--neon); display: block; }
+    .flare {
+      position: relative;
+      width: min(320px, 70%);
+      height: 36px;
+      margin: 8px auto 14px;
+      overflow: visible;
+    }
+    .flare::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0%, rgba(184,255,46,.25) 20%, rgba(184,255,46,.55) 50%, rgba(184,255,46,.25) 80%, transparent 100%);
+      box-shadow: 0 0 8px rgba(184,255,46,.45), 0 0 22px rgba(184,255,46,.25);
+      transform: translateY(-50%);
+    }
+    .flare::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 72px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 999px;
+      background: radial-gradient(ellipse at center, #fff 0%, var(--neon) 35%, transparent 72%);
+      box-shadow: 0 0 16px var(--neon), 0 0 40px var(--neon-glow), 0 0 70px rgba(184,255,46,.35);
+      animation: neon-sweep 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes neon-sweep {
+      0%   { left: -8%; opacity: .35; }
+      15%  { opacity: 1; }
+      50%  { left: calc(100% - 64px); opacity: 1; }
+      85%  { opacity: 1; }
+      100% { left: -8%; opacity: .35; }
+    }
+    .hero h1.hero-line2 { margin-top: 0; margin-bottom: 1rem; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; }
+    .app-note { margin-top: 1rem; color: var(--muted); font-size: 13px; }
+    .trust { margin-top: 14px; color: var(--muted); font-size: 13px; display: inline-flex; gap: 6px; align-items: center; }
+
+    /* SECTIONS */
+    section.block { padding: 80px 0; }
+    .sec-head { margin-bottom: 2.5rem; max-width: 720px; }
+    .sec-head.center { margin-inline: auto; text-align: center; }
+    .sec-head .k { color: var(--neon); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; margin-bottom: 12px; text-shadow: 0 0 18px var(--neon-glow); }
+    .sec-head h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.15; letter-spacing: -.03em; font-weight: 800; }
+    .sec-head p { color: var(--muted); margin-top: 14px; font-size: 16px; }
+
+    /* WHY - photo cards */
+    .grid-3 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .photo-card { position: relative; border-radius: 22px; overflow: hidden; min-height: 320px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; background: #111 center/cover no-repeat; border: 1px solid #222; }
+    .photo-card::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.88)); }
+    .photo-card > * { position: relative; z-index: 1; }
+    .photo-card .num { position: absolute; top: 18px; left: 18px; z-index: 2; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--neon); background: rgba(0,0,0,.5); padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(184,255,46,.3); }
+    .photo-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .photo-card p { font-size: 14px; color: #ddd; }
+
+    /* WINDOW SLIDER — Közhang-style before/after */
+    .window {
+      --split: 50%;
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #222;
+      background: #161616;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .window-body {
+      position: relative;
+      flex: 1;
+      min-height: 360px;
+      touch-action: none;
+      cursor: ew-resize;
+    }
+    .pane {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .pane-before { z-index: 1; background: #161616; }
+    .pane-after {
+      z-index: 2;
+      width: var(--split);
+      max-width: 100%;
+      background: var(--neon);
+    }
+    .window.is-dragging .pane-after,
+    .window.is-dragging .divider { transition: none !important; }
+    .window:not(.is-dragging) .pane-after,
+    .window:not(.is-dragging) .divider {
+      transition: width .32s ease, left .32s ease;
+    }
+    /* Top labels — inside each pane, clipped with split */
+    .pane-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px 10px;
+      min-height: 52px;
+      box-sizing: border-box;
+    }
+    .pane-before .pane-head { justify-content: flex-end; text-align: right; }
+    .pane-after .pane-head { justify-content: flex-start; }
+    .pane-head .tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .pane-after .tag { color: #0a1400; }
+    .pane-before .tag { color: #8b8b8b; }
+    .pane-before .tag small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: none;
+      color: #666;
+      margin-top: 2px;
+    }
+    .pane-cards {
+      display: flex;
+      gap: 12px;
+      padding: 0 18px 18px;
+      height: calc(100% - 52px);
+      box-sizing: border-box;
+      align-items: stretch;
+    }
+    .pane-cards .win-card {
+      display: flex;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .win-card {
+      flex: 1 1 0;
+      min-width: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      background: #111 center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    .win-card::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.88)); }
+    .win-card > * { position: relative; z-index: 1; }
+    .win-ico {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      width: 36px; height: 36px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(10px);
+      font-size: 13px; font-weight: 700;
+    }
+    .win-card h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; line-height: 1.25; }
+    .win-card p { margin: 0; font-size: 11px; color: #ddd; line-height: 1.4; }
+    .divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: var(--split);
+      width: 3px;
+      margin-left: -1.5px;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.2), 0 0 20px rgba(184,255,46,.45);
+      z-index: 6;
+      pointer-events: none;
+    }
+    .divider-knob {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 48px; height: 48px;
+      border-radius: 999px;
+      background: var(--neon);
+      color: #0a1400;
+      display: grid; place-items: center;
+      box-shadow: 0 0 0 3px #fff, 0 0 24px var(--neon-glow);
+      font-size: 16px; font-weight: 800;
+      pointer-events: auto;
+      cursor: ew-resize;
+      border: 0;
+      z-index: 7;
+      touch-action: none;
+    }
+    .window-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-top: 1px solid #222;
+      background: #101010;
+      position: relative;
+      z-index: 8;
+    }
+    .dots { display: flex; gap: 8px; align-items: center; }
+    .dots button {
+      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
+      background: #333; cursor: pointer; transition: .2s;
+    }
+    .dots button.on { width: 28px; background: var(--neon); box-shadow: 0 0 10px var(--neon-glow); }
+    @media (max-width: 720px) {
+      .pane-cards { flex-direction: column; height: auto; }
+      .win-card { min-height: 180px; flex: none; }
+      .window { min-height: auto; }
+    }
+
+    /* ACTION PANEL */
+    .panel { border-radius: 28px; padding: 32px; background: linear-gradient(120deg, rgba(184,255,46,.08), rgba(34,211,238,.06), rgba(20,20,20,.95)); border: 1px solid rgba(184,255,46,.15); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+    .panel h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -.02em; }
+    .panel p { color: var(--muted); margin-top: 6px; font-size: 14px; }
+    .action-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .action-btn { padding: 11px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; border: 1px solid var(--line); background: rgba(0,0,0,.5); transition: .15s; }
+    .action-btn:hover { border-color: var(--neon); color: var(--neon); }
+
+    /* STORY */
+    .story-grid { display: grid; gap: 16px; }
+    @media (min-width: 900px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+    .story-main { border-radius: 28px; overflow: hidden; border: 1px solid #222; background: #111 center/cover no-repeat; min-height: 480px; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; position: relative; }
+    .story-main::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.9)); }
+    .story-main > * { position: relative; z-index: 1; }
+    .story-main .gold { color: var(--gold); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .story-main h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin: 12px 0; letter-spacing: -.03em; }
+    .story-main p { color: #ccc; font-size: 15px; max-width: 480px; margin-bottom: 20px; }
+    .timeline { display: flex; flex-direction: column; gap: 12px; }
+    .tl { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 22px; border-radius: 20px; background: #141414; border: 1px solid #222; transition: .2s; }
+    .tl:hover { border-color: rgba(184,255,46,.25); }
+    .tl-num { font-size: 28px; font-weight: 800; color: var(--neon); line-height: 1; }
+    .tl h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .tl p { font-size: 13px; color: var(--muted); }
+
+    /* PARTNERS */
+    .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .partner { min-height: 90px; display: grid; place-items: center; border-radius: 18px; background: #141414; border: 1px solid #222; color: var(--muted); font-size: 12px; text-align: center; padding: 12px; }
+
+    /* TRUST */
+    .trust-panel { border-radius: 28px; padding: 40px; background: radial-gradient(circle at 85% 50%, rgba(184,255,46,.1), transparent 35%), #141414; border: 1px solid #222; display: grid; gap: 32px; }
+    @media (min-width: 800px) { .trust-panel { grid-template-columns: 1fr 1fr; padding: 50px; } }
+    .trust-panel > div > p { color: var(--muted); margin-top: 14px; }
+    .trust-points { display: flex; flex-direction: column; gap: 12px; }
+    .tp { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px solid #222; }
+    .tp-check { width: 28px; height: 28px; min-width: 28px; border-radius: 999px; background: rgba(184,255,46,.15); color: var(--neon); display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+    .tp strong { font-size: 14px; display: block; }
+    .tp span { font-size: 12px; color: var(--muted); display: block; margin-top: 2px; }
+
+    /* FINAL CTA */
+    .cta-box { text-align: center; padding: 80px 24px; border-radius: 32px; background: radial-gradient(circle at 50% 0%, rgba(184,255,46,.14), transparent 50%), linear-gradient(145deg, #0a0a0a, #050505); border: 1px solid rgba(184,255,46,.15); }
+    .cta-box h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.03em; max-width: 700px; margin: 0 auto; }
+    .cta-box > p { color: var(--muted); max-width: 520px; margin: 16px auto 24px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #1a1a1a; padding: 48px 0 28px; color: var(--muted); font-size: 13px; }
+    .foot-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+    .foot-title { color: #fff; font-weight: 700; margin-bottom: 12px; font-size: 13px; }
+    .foot-links { display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a:hover { color: var(--neon); }
+    .foot-brand p { margin-top: 14px; max-width: 280px; line-height: 1.6; }
+    .foot-bottom { margin-top: 40px; padding-top: 18px; border-top: 1px solid #1a1a1a; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 11px; color: #666; }
+
+    @media (min-width: 860px) { .nav-links { display: flex; } }
+    @media (max-width: 720px) {
+      .panel { flex-direction: column; align-items: flex-start; }
+      .hdr-row .pill-neon:not(.nav-dl) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hdr">
+    <div class="shell hdr-row">
+      <a class="logo" href="/">
+        <span class="logo-mark">AN</span>
+        <span>Act<span class="accent">Now</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#miert">Miért ActNow?</a>
+        <a href="#hogyan">Hogyan működik?</a>
+        <a href="/tortenet.html">Történetek</a>
+        <a href="/partnerek.html">Partnerek</a>
+        <a href="/szervezetek.html">Szervezetek</a>
+      </nav>
+      <div class="hdr-actions">
+        <a class="pill pill-neon nav-dl" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése →</a>
+        <button type="button" class="share-trigger" id="shareOpen" aria-label="Megosztás" title="Megosztás">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="18" cy="19" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M8.4 10.8 15.6 6.2M8.4 13.2l7.2 4.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="mosaic" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+      <div class="veil"></div>
+      <div class="hero-inner">
+        <p class="kicker">Átlátható jótékonyság a zsebedben</p>
+        <h1>Cselekedj most.</h1>
+        <div class="flare" aria-hidden="true"></div>
+        <h1 class="hero-line2"><span class="hl">Változtasd meg a holnapot.</span></h1>
+        <p class="hero-lead">Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok és átlátható eredmények egyetlen alkalmazásban.</p>
+        <div class="hero-btns">
+          <a class="pill pill-neon pill-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener"> App Store</a>
+          <span class="pill pill-outline">Android hamarosan</span>
+          <a class="pill pill-link" href="/tortenet.html">Nézd meg a történetet →</a>
+        </div>
+        <p class="app-note">A történet itt a weben. A cselekvés az appban.</p>
+        <div class="trust">🛡 Átlátható hatás. Nincs spam, nincs zaj.</div>
+      </div>
+    </section>
+
+    <!-- MIÉRT -->
+    <section class="block" id="miert">
+      <div class="shell">
+        <div class="sec-head center">
+          <p class="k">Miért ActNow?</p>
+          <h2>Ne csak segíts.<br />Lásd is a hatását.</h2>
+          <p>Az ActNow célja, hogy a jótékonyság ne egy láthatatlan tranzakció legyen, hanem egy követhető, dokumentált folyamat.</p>
+        </div>
+        <div class="grid-3">
+          <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=70')">
+            <span class="num">01 / KÖZVETLEN HATÁS</span>
+            <h3>Közvetlen hatás</h3>
+            <p>Felajánlásoddal valódi helyi ügyeket támogathatsz. Kevesebb közvetítő, több konkrét cselekvés.</p>
+          </article>
+          <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=70')">
+            <span class="num">02 / KÖVETÉS</span>
+            <h3>Valós idejű követés</h3>
+            <p>Az alkalmazásban követheted, mi történt az ügyeddel, és milyen eredmény született.</p>
+          </article>
+          <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=70')">
+            <span class="num">03 / EGYSZERŰSÉG</span>
+            <h3>Egyszerű cselekvés</h3>
+            <p>Néhány lépés. Egy alkalmazás. Nincs felesleges bürokrácia. Válassz egy ügyet és cselekedj.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOGYAN - WINDOW SLIDER -->
+    <section class="block" id="hogyan" style="padding-top:40px">
+      <div class="shell">
+        <div class="sec-head center">
+          <p class="k">Hogyan működik?</p>
+          <h2>A történet átlátható. A cselekvés egyszerű.</h2>
+          <p>A weboldalon megismerheted az ügyeket és az eredményeket. A napi cselekvés az ActNow alkalmazásban történik.</p>
+        </div>
+        <div class="window" id="window" style="--split:50%">
+          <div class="window-body" id="windowBody">
+            <!-- Nélküle (teljes háttér) -->
+            <div class="pane pane-before">
+              <div class="pane-head">
+                <span class="tag">Nélküle<small>A segítség elveszik a zajban</small></span>
+              </div>
+              <div class="pane-cards" id="cardsBefore">
+                <article class="win-card" data-i="0" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">✕</span><h3>Zajos kampányok</h3><p>Sok poszt, kevés visszajelzés — nehéz hinni a hatásnak.</p>
+                </article>
+                <article class="win-card" data-i="1" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">✕</span><h3>Széteső segítség</h3><p>Szervezetek és adakozók nem találják egymást időben.</p>
+                </article>
+                <article class="win-card" data-i="2" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">✕</span><h3>Láthatatlan eredmény</h3><p>Nem tudod, mi történt az adományoddal — nincs történet.</p>
+                </article>
+              </div>
+            </div>
+            <!-- ActNow-val (balról vágva) -->
+            <div class="pane pane-after" id="paneAfter">
+              <div class="pane-head">
+                <span class="tag">ActNow-val</span>
+              </div>
+              <div class="pane-cards" id="cardsAfter">
+                <article class="win-card" data-i="0" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">01</span><h3>Töltsd le az appot</h3><p>Az ActNow appban egy helyen érheted el a kampányokat és lehetőségeket.</p>
+                </article>
+                <article class="win-card" data-i="1" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">02</span><h3>Válassz ügyet vagy ajánlj fel</h3><p>Adománnyal, felajánlással, önkéntességgel — ahogy neked megfelel.</p>
+                </article>
+                <article class="win-card" data-i="2" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=70')">
+                  <span class="win-ico">03</span><h3>Kövesd az eredményt</h3><p>A történeteket és dokumentációt itt, a weboldalon is megismerheted.</p>
+                </article>
+              </div>
+            </div>
+            <div class="divider" id="divider">
+              <button type="button" class="divider-knob" id="knob" aria-label="Húzd balra-jobbra: ActNow-val vagy Nélküle">⇄</button>
+            </div>
+          </div>
+          <div class="window-foot">
+            <div class="dots" id="dots" aria-label="Ablak választó"></div>
+            <a class="pill pill-neon" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">Tovább</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="block" style="padding-top:20px">
+      <div class="shell">
+        <div class="panel">
+          <div>
+            <h3>Te hogyan cselekednél?</h3>
+            <p>A napi műveletek az ActNow alkalmazásban történnek.</p>
+          </div>
+          <div class="action-btns">
+            <a class="action-btn" href="https://actnowcharity.com/app/daily-donation" data-open-app="daily-donation">Napi adomány</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/redeem" data-open-app="redeem">QR beváltás</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/offer" data-open-app="offer">Felajánlás</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/auction" data-open-app="auction">Árverés</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SZENDRŐ -->
+    <section class="block" id="tortenet">
+      <div class="shell">
+        <div class="sec-head">
+          <p class="k">Valódi történetek</p>
+          <h2>Nem ígéretek.<br />Történetek.</h2>
+          <p>Az ActNow egyik legfontosabb része, hogy a cselekvésnek története van. Megmutatjuk, mi történt az ügyekkel.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-main" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=70')">
+            <p class="gold">Első történet / Szendrő</p>
+            <h2>Szendrő — ahol már cselekedtünk.</h2>
+            <p>Valódi adomány, dokumentált cselekvés és közösségi segítség. Nézd meg, hogyan lett egy felajánlásból kézzelfogható eredmény.</p>
+            <a class="pill pill-neon" href="/kampany/szendro.html">Teljes történet →</a>
+          </article>
+          <div class="timeline">
+            <article class="tl"><div class="tl-num">01</div><div><h3>Megszületett az ügy</h3><p>Egy helyi probléma láthatóvá válik, és közösségi segítségre van szükség.</p></div></article>
+            <article class="tl"><div class="tl-num">02</div><div><h3>Megérkezett a segítség</h3><p>A felajánlásból konkrét cselekvés és valódi támogatás lesz.</p></div></article>
+            <article class="tl"><div class="tl-num">03</div><div><h3>Dokumentáltuk az eredményt</h3><p>A történet nem ér véget az adománynál. Megmutatjuk, mi történt utána.</p></div></article>
+            <article class="tl"><div class="tl-num">04</div><div><h3>A történet folytatódik</h3><p>Új ügyek, új szervezetek, új lehetőségek a cselekvésre.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNEREK -->
+    <section class="block" style="border-top:1px solid #1a1a1a">
+      <div class="shell">
+        <div class="sec-head center">
+          <p class="k">Együtt többre vagyunk képesek</p>
+          <h2>Partnerek, akik cselekszenek.</h2>
+          <p>Az ActNow szervezeteket, közösségeket, vállalkozásokat és segíteni akaró embereket kapcsol össze.</p>
+        </div>
+        <div class="partner-grid">
+          <div class="partner">Interfood</div>
+          <div class="partner">Buday Taekwon-do</div>
+          <div class="partner">ENSZ / WFP</div>
+          <div class="partner">UNHCR</div>
+          <div class="partner">ICR — hamarosan</div>
+        </div>
+        <div style="margin-top:20px;text-align:center">
+          <a class="pill pill-outline" href="/partnerek.html">Összes partner →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="block">
+      <div class="shell">
+        <div class="trust-panel">
+          <div>
+            <p class="k">Átláthatóság</p>
+            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em">A bizalom dokumentációval kezdődik.</h2>
+            <p>Az ActNow célja egy olyan rendszer létrehozása, ahol a jótékonysági cselekvés követhető, érthető és ellenőrizhető.</p>
+          </div>
+          <div class="trust-points">
+            <div class="tp"><div class="tp-check">✓</div><div><strong>Dokumentált ügyek</strong><span>A történetekhez valós események és eredmények kapcsolódnak.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong>Követhető folyamat</strong><span>A cselekvés és annak eredménye strukturált módon jelenik meg.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong>Közösségi részvétel</strong><span>Nem egyetlen szereplő dönt: a közösség is része a folyamatnak.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong>Valós történetek</strong><span>Nem általános ígéreteket mutatunk, hanem konkrét ügyeket.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SZERVEZETEK -->
+    <section class="block" style="padding-top:20px">
+      <div class="shell">
+        <div class="panel">
+          <div>
+            <p class="k" style="margin-bottom:8px">Szervezeteknek</p>
+            <h3>Van egy ügyetek? Csatlakozzatok.</h3>
+            <p>Alapítványok, egyesületek, egyházak, iskolák és közösségek csatlakozhatnak az ActNow hálózatához.</p>
+          </div>
+          <a class="pill pill-neon" href="/szervezetek.html">Szervezet csatlakozása →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="block" style="padding-bottom:100px">
+      <div class="shell">
+        <div class="cta-box">
+          <p class="k">Most rajtad a sor</p>
+          <h2>Egy kis cselekvés nagy változást indíthat el.</h2>
+          <p>Töltsd le az ActNow alkalmazást, válassz egy ügyet, és cselekedj most.</p>
+          <div class="hero-btns">
+            <a class="pill pill-neon pill-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener"> Letöltés az App Store-ból</a>
+            <span class="pill pill-outline">Android hamarosan</span>
+            <a class="pill pill-link" href="/tortenet.html">Történetek megtekintése →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="logo" href="/"><span class="logo-mark">AN</span><span>Act<span class="accent">Now</span></span></a>
+          <p>Cselekedj most. Változtasd meg a holnapot. Valódi ügyek, valódi cselekvés, átlátható eredmények.</p>
+        </div>
+        <div>
+          <div class="foot-title">Platform</div>
+          <div class="foot-links">
+            <a href="/tortenet.html">Történetek</a>
+            <a href="/partnerek.html">Partnerek</a>
+            <a href="/szervezetek.html">Szervezetek</a>
+          </div>
+        </div>
+        <div>
+          <div class="foot-title">Jogi</div>
+          <div class="foot-links">
+            <a href="/adatvedelem.html">Adatvédelem</a>
+            <a href="/aszf.html">ÁSZF</a>
+          </div>
+        </div>
+        <div>
+          <div class="foot-title">Kapcsolat</div>
+          <div class="foot-links">
+            <a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a>
+            <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 ActNow Charity. Minden jog fenntartva.</span>
+        <span>actnowcharity.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="share-backdrop" id="shareBackdrop" hidden>
+    <div class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+      <button type="button" class="share-close" aria-label="Bezárás">×</button>
+      <div class="share-card" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80')">
+        <div class="share-card-inner">
+          <div class="share-card-top">
+            <div class="share-card-logo"><span class="mark">AN</span><span>Act<span style="color:#b8ff2e">Now</span></span></div>
+            <h3>Mi lenne, ha a <em>cselekvésed</em> változást indítana?</h3>
+            <div class="share-badges">
+              <span>Átlátható hatás</span>
+              <span>Valódi történetek</span>
+              <span>Egy app, sok ügy</span>
+            </div>
+          </div>
+          <span class="share-url-pill">ACTNOWCHARITY.COM</span>
+        </div>
+      </div>
+      <p class="share-kicker">Oszd meg</p>
+      <p class="share-title" id="shareTitle">Minél többen cselekszünk, annál erősebb a hatásunk.</p>
+      <div class="share-btns">
+        <button type="button" class="share-btn" data-share="facebook" aria-label="Facebook">
+          <span class="share-btn-label">Facebook</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>
+        </button>
+        <button type="button" class="share-btn" data-share="x" aria-label="X">
+          <span class="share-btn-label">X</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 4H21l-6.6 7.5L22 20h-5.7l-4.5-5.9L6.5 20H4l7-8L2.5 4H8.3l4 5.3L18.2 4zm-1 14.5h1.6L7 5.4H5.3L17.2 18.5z"/></svg>
+        </button>
+        <button type="button" class="share-btn" data-share="whatsapp" aria-label="WhatsApp">
+          <span class="share-btn-label">WhatsApp</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a8.9 8.9 0 0 0-7.7 13.4L3.2 20.8l4.5-1.2A8.9 8.9 0 1 0 12 3zm0 1.8a7.1 7.1 0 0 1 6 10.9l-.3.5.7 2.6-2.7-.7-.4.2A7.1 7.1 0 0 1 12 4.8zm4.1 9.7c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/></svg>
+        </button>
+        <button type="button" class="share-btn" data-share="copy" aria-label="Link másolása">
+          <span class="share-btn-label">Link másolása</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l2.1-2.1a5 5 0 0 0-7.1-7.1L10.8 5"/><path d="M14 11a5 5 0 0 0-7.1 0L4.8 13.1a5 5 0 0 0 7.1 7.1L13.2 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/open-app.js"></script>
+  <script src="/assets/share.js?v=2"></script>
+  <script>
+  (function () {
+    var win = document.getElementById("window");
+    var body = document.getElementById("windowBody");
+    var knob = document.getElementById("knob");
+    var dotsWrap = document.getElementById("dots");
+    if (!win || !knob || !body) return;
+
+    var split = 50;
+    var dragging = false;
+
+    for (var i = 0; i < 3; i++) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Lépés " + (i + 1));
+      if (i === 1) dot.className = "on";
+      dotsWrap.appendChild(dot);
+    }
+
+    function setSplit(pct, animate) {
+      split = Math.max(0, Math.min(100, pct));
+      win.style.setProperty("--split", split + "%");
+      if (animate) win.classList.remove("is-dragging");
+      else win.classList.add("is-dragging");
+    }
+
+    function pointerPct(clientX) {
+      var r = body.getBoundingClientRect();
+      if (!r.width) return split;
+      return ((clientX - r.left) / r.width) * 100;
+    }
+
+    /** Húzás: 0% = teljes Nélküle, 100% = teljes ActNow-val */
+    function startDrag(e) {
+      dragging = true;
+      win.classList.add("is-dragging");
+      setSplit(pointerPct(e.clientX), false);
+      e.preventDefault();
+    }
+
+    function moveDrag(e) {
+      if (!dragging) return;
+      setSplit(pointerPct(e.clientX), false);
+    }
+
+    function endDrag() {
+      dragging = false;
+      win.classList.remove("is-dragging");
+    }
+
+    knob.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      knob.setPointerCapture(e.pointerId);
+      startDrag(e);
+    });
+    body.addEventListener("pointerdown", function (e) {
+      if (e.target.closest(".divider-knob")) return;
+      body.setPointerCapture(e.pointerId);
+      startDrag(e);
+    });
+    window.addEventListener("pointermove", moveDrag);
+    window.addEventListener("pointerup", endDrag);
+    window.addEventListener("pointercancel", endDrag);
+
+    knob.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { setSplit(split - 5, true); e.preventDefault(); }
+      if (e.key === "ArrowRight") { setSplit(split + 5, true); e.preventDefault(); }
+    });
+
+    setSplit(50, true);
+  })();
+  </script>
+</body>
+</html>

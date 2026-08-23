@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "KX8VWZLWA3.com.actnow.charity",
+        "paths": ["/app/*"]
+      }
+    ]
+  }
+}

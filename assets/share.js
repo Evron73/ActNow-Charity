@@ -6,7 +6,6 @@
   if (!openBtn || !backdrop) return;
 
   var closeBtn = backdrop.querySelector('.share-close');
-  var copyBtn = backdrop.querySelector('[data-share="copy"]');
   var lastFocus = null;
 
   function openShare() {
@@ -58,11 +57,8 @@
       if (kind === 'copy') {
         var done = function () {
           btn.classList.add('copied');
-          var label = btn.querySelector('span:last-child');
-          if (label) label.textContent = 'Másolva!';
           window.setTimeout(function () {
             btn.classList.remove('copied');
-            if (label) label.textContent = 'Link másolása';
           }, 1800);
         };
         if (navigator.clipboard && navigator.clipboard.writeText) {

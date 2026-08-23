@@ -86,10 +86,10 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  min-height: 260px;
+  min-height: 210px;
   background: #111 center/cover no-repeat;
   border: 1px solid #222;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: left;
 }
 .share-card::after {
@@ -103,12 +103,12 @@
 .share-card-inner {
   position: relative;
   z-index: 1;
-  padding: 18px;
-  min-height: 260px;
+  padding: 16px;
+  min-height: 210px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 .share-card-top { display: flex; flex-direction: column; gap: 14px; }
 .share-card-logo {
@@ -197,9 +197,9 @@
   text-shadow: 0 0 16px var(--neon-glow);
 }
 .share-title {
-  margin: 0 auto 20px;
+  margin: 0 auto 16px;
   max-width: 22ch;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.4;
   font-weight: 700;
   color: #fff;

@@ -14,7 +14,10 @@ a { color: inherit; text-decoration: none; }
 .hdr { position: sticky; top: 0; z-index: 50; padding: 14px 0; background: rgba(5,5,5,.92); backdrop-filter: blur(12px); border-bottom: 1px solid #1a1a1a; }
 .hdr-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
-.logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--neon), #22d3ee); color: #04100a; font-weight: 800; font-size: 13px; display: grid; place-items: center; }
+.logo-mark { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--neon), #22d3ee); color: #04100a; font-weight: 800; font-size: 11px; letter-spacing: -.04em; display: grid; place-items: center; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.05; gap: 2px; }
+.logo-name { font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+.logo-sub { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: lowercase; color: var(--muted); }
 .logo span.accent { color: var(--neon); }
 .nav-links { display: none; gap: 1.2rem; font-size: 14px; color: var(--muted); }
 .nav-links a:hover { color: #fff; }

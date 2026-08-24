@@ -44,7 +44,10 @@
     .hdr { position: fixed; inset: 0 0 auto; z-index: 100; padding: 14px 0; background: linear-gradient(#000c, #0000); backdrop-filter: blur(12px); }
     .hdr-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
-    .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--neon), var(--cyan)); color: #04100a; font-weight: 800; font-size: 13px; display: grid; place-items: center; box-shadow: 0 0 24px var(--neon-glow); }
+    .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--neon), var(--cyan)); color: #04100a; font-weight: 800; font-size: 11px; letter-spacing: -.04em; display: grid; place-items: center; box-shadow: 0 0 24px var(--neon-glow); }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.05; gap: 2px; }
+    .logo-name { font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+    .logo-sub { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: lowercase; color: var(--muted); }
     .logo span.accent { color: var(--neon); }
     .nav-links { display: none; gap: 1.4rem; align-items: center; }
     .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
@@ -358,8 +361,11 @@
   <header class="hdr">
     <div class="shell hdr-row">
       <a class="logo" href="/">
-        <span class="logo-mark">AN</span>
-        <span>Act<span class="accent">Now</span></span>
+        <span class="logo-mark">ANC</span>
+        <span class="logo-text">
+          <span class="logo-name">Act<span class="accent">Now</span></span>
+          <span class="logo-sub">charity</span>
+        </span>
       </a>
       <nav class="nav-links">
         <a href="#miert" data-i18n="navWhy">Miért ActNow?</a>
@@ -611,7 +617,7 @@
     <div class="shell">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a class="logo" href="/"><span class="logo-mark">AN</span><span>Act<span class="accent">Now</span></span></a>
+          <a class="logo" href="/"><span class="logo-mark">ANC</span><span class="logo-text"><span class="logo-name">Act<span class="accent">Now</span></span><span class="logo-sub">charity</span></span></a>
           <p data-i18n="footBlurb">Cselekedj most. Változtasd meg a holnapot. Valódi ügyek, valódi cselekvés, átlátható eredmények.</p>
         </div>
         <div>
@@ -650,7 +656,7 @@
       <div class="share-card" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80')">
         <div class="share-card-inner">
           <div class="share-card-top">
-            <div class="share-card-logo"><span class="mark">AN</span><span>Act<span style="color:#b8ff2e">Now</span></span></div>
+            <div class="share-card-logo"><span class="mark">ANC</span><span class="logo-text"><span class="logo-name">Act<span style="color:#b8ff2e">Now</span></span><span class="logo-sub">charity</span></span></div>
             <h3 data-i18n="shareH3" data-i18n-html="1">Mi lenne, ha a <em>cselekvésed</em> változást indítana?</h3>
             <div class="share-badges">
               <span data-i18n="shareB1">Átlátható hatás</span>

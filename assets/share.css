@@ -119,15 +119,30 @@
   font-size: 15px;
 }
 .share-card-logo .mark {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
   background: linear-gradient(135deg, var(--neon), #22d3ee);
   color: #04100a;
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: -.04em;
   display: grid;
   place-items: center;
   box-shadow: 0 0 16px var(--neon-glow);
+}
+.share-card-logo .logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  gap: 2px;
+}
+.share-card-logo .logo-name { font-size: 15px; font-weight: 800; }
+.share-card-logo .logo-sub {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,.72);
 }
 .share-card h3 {
   margin: 0;

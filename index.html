@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/share.css?v=3" />
+  <link rel="stylesheet" href="/assets/i18n.css?v=1" />
   <style>
     :root {
       --bg: #050505;
@@ -361,15 +362,21 @@
         <span>Act<span class="accent">Now</span></span>
       </a>
       <nav class="nav-links">
-        <a href="#miert">Miért ActNow?</a>
-        <a href="#hogyan">Hogyan működik?</a>
-        <a href="/tortenet.html">Történetek</a>
-        <a href="/partnerek.html">Partnerek</a>
-        <a href="/szervezetek.html">Szervezetek</a>
+        <a href="#miert" data-i18n="navWhy">Miért ActNow?</a>
+        <a href="#hogyan" data-i18n="navHow">Hogyan működik?</a>
+        <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+        <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
+        <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
       </nav>
       <div class="hdr-actions">
-        <a class="pill pill-neon nav-dl" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App letöltése →</a>
-        <button type="button" class="share-trigger" id="shareOpen" aria-label="Megosztás" title="Megosztás">
+        <div class="lang-wrap">
+          <button type="button" class="lang-trigger" data-i18n-aria="langA11y" aria-label="Nyelv választása" aria-haspopup="listbox">
+            <span class="flag">🇭🇺</span><span class="code">HU</span>
+          </button>
+          <div class="lang-menu" role="listbox"></div>
+        </div>
+        <a class="pill pill-neon nav-dl" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener" data-i18n="downloadApp">App letöltése →</a>
+        <button type="button" class="share-trigger" id="shareOpen" data-i18n-aria="shareA11y" data-i18n-title="shareA11y" aria-label="Megosztás" title="Megosztás">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.8"/>
             <circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/>
@@ -387,18 +394,18 @@
       <div class="mosaic" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
       <div class="veil"></div>
       <div class="hero-inner">
-        <p class="kicker">Átlátható jótékonyság a zsebedben</p>
-        <h1>Cselekedj most.</h1>
+        <p class="kicker" data-i18n="kicker">Átlátható jótékonyság a zsebedben</p>
+        <h1 data-i18n="hero1">Cselekedj most.</h1>
         <div class="flare" aria-hidden="true"></div>
-        <h1 class="hero-line2"><span class="hl">Változtasd meg a holnapot.</span></h1>
-        <p class="hero-lead">Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok és átlátható eredmények egyetlen alkalmazásban.</p>
+        <h1 class="hero-line2"><span class="hl" data-i18n="hero2">Változtasd meg a holnapot.</span></h1>
+        <p class="hero-lead" data-i18n="heroLead">Az ActNow összeköti a segíteni akarókat a valódi ügyekkel — felajánlás, önkéntesség, helyi kampányok és átlátható eredmények egyetlen alkalmazásban.</p>
         <div class="hero-btns">
           <a class="pill pill-neon pill-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener"> App Store</a>
-          <span class="pill pill-outline">Android hamarosan</span>
-          <a class="pill pill-link" href="/tortenet.html">Nézd meg a történetet →</a>
+          <span class="pill pill-outline" data-i18n="androidSoon">Android hamarosan</span>
+          <a class="pill pill-link" href="/tortenet.html" data-i18n="viewStory">Nézd meg a történetet →</a>
         </div>
-        <p class="app-note">A történet itt a weben. A cselekvés az appban.</p>
-        <div class="trust">🛡 Átlátható hatás. Nincs spam, nincs zaj.</div>
+        <p class="app-note" data-i18n="appNote">A történet itt a weben. A cselekvés az appban.</p>
+        <div class="trust" data-i18n="trustLine">🛡 Átlátható hatás. Nincs spam, nincs zaj.</div>
       </div>
     </section>
 
@@ -406,25 +413,25 @@
     <section class="block" id="miert">
       <div class="shell">
         <div class="sec-head center">
-          <p class="k">Miért ActNow?</p>
-          <h2>Ne csak segíts.<br />Lásd is a hatását.</h2>
-          <p>Az ActNow célja, hogy a jótékonyság ne egy láthatatlan tranzakció legyen, hanem egy követhető, dokumentált folyamat.</p>
+          <p class="k" data-i18n="whyK">Miért ActNow?</p>
+          <h2 data-i18n="whyH2" data-i18n-html="1">Ne csak segíts.<br />Lásd is a hatását.</h2>
+          <p data-i18n="whyP">Az ActNow célja, hogy a jótékonyság ne egy láthatatlan tranzakció legyen, hanem egy követhető, dokumentált folyamat.</p>
         </div>
         <div class="grid-3">
           <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=70')">
-            <span class="num">01 / KÖZVETLEN HATÁS</span>
-            <h3>Közvetlen hatás</h3>
-            <p>Felajánlásoddal valódi helyi ügyeket támogathatsz. Kevesebb közvetítő, több konkrét cselekvés.</p>
+            <span class="num" data-i18n="why1Num">01 / KÖZVETLEN HATÁS</span>
+            <h3 data-i18n="why1H">Közvetlen hatás</h3>
+            <p data-i18n="why1P">Felajánlásoddal valódi helyi ügyeket támogathatsz. Kevesebb közvetítő, több konkrét cselekvés.</p>
           </article>
           <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=70')">
-            <span class="num">02 / KÖVETÉS</span>
-            <h3>Valós idejű követés</h3>
-            <p>Az alkalmazásban követheted, mi történt az ügyeddel, és milyen eredmény született.</p>
+            <span class="num" data-i18n="why2Num">02 / KÖVETÉS</span>
+            <h3 data-i18n="why2H">Valós idejű követés</h3>
+            <p data-i18n="why2P">Az alkalmazásban követheted, mi történt az ügyeddel, és milyen eredmény született.</p>
           </article>
           <article class="photo-card" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=70')">
-            <span class="num">03 / EGYSZERŰSÉG</span>
-            <h3>Egyszerű cselekvés</h3>
-            <p>Néhány lépés. Egy alkalmazás. Nincs felesleges bürokrácia. Válassz egy ügyet és cselekedj.</p>
+            <span class="num" data-i18n="why3Num">03 / EGYSZERŰSÉG</span>
+            <h3 data-i18n="why3H">Egyszerű cselekvés</h3>
+            <p data-i18n="why3P">Néhány lépés. Egy alkalmazás. Nincs felesleges bürokrácia. Válassz egy ügyet és cselekedj.</p>
           </article>
         </div>
       </div>
@@ -434,53 +441,53 @@
     <section class="block" id="hogyan" style="padding-top:40px">
       <div class="shell">
         <div class="sec-head center">
-          <p class="k">Hogyan működik?</p>
-          <h2>A történet átlátható. A cselekvés egyszerű.</h2>
-          <p>A weboldalon megismerheted az ügyeket és az eredményeket. A napi cselekvés az ActNow alkalmazásban történik.</p>
+          <p class="k" data-i18n="howK">Hogyan működik?</p>
+          <h2 data-i18n="howH2">A történet átlátható. A cselekvés egyszerű.</h2>
+          <p data-i18n="howP">A weboldalon megismerheted az ügyeket és az eredményeket. A napi cselekvés az ActNow alkalmazásban történik.</p>
         </div>
         <div class="window" id="window" style="--split:50%">
           <div class="window-body" id="windowBody">
             <!-- Nélküle (teljes háttér) -->
             <div class="pane pane-before">
               <div class="pane-head">
-                <span class="tag">Nélküle<small>A segítség elveszik a zajban</small></span>
+                <span class="tag"><span data-i18n="without">Nélküle</span><small data-i18n="withoutSub">A segítség elveszik a zajban</small></span>
               </div>
               <div class="pane-cards" id="cardsBefore">
                 <article class="win-card" data-i="0" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">✕</span><h3>Zajos kampányok</h3><p>Sok poszt, kevés visszajelzés — nehéz hinni a hatásnak.</p>
+                  <span class="win-ico">✕</span><h3 data-i18n="b1H">Zajos kampányok</h3><p data-i18n="b1P">Sok poszt, kevés visszajelzés — nehéz hinni a hatásnak.</p>
                 </article>
                 <article class="win-card" data-i="1" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">✕</span><h3>Széteső segítség</h3><p>Szervezetek és adakozók nem találják egymást időben.</p>
+                  <span class="win-ico">✕</span><h3 data-i18n="b2H">Széteső segítség</h3><p data-i18n="b2P">Szervezetek és adakozók nem találják egymást időben.</p>
                 </article>
                 <article class="win-card" data-i="2" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">✕</span><h3>Láthatatlan eredmény</h3><p>Nem tudod, mi történt az adományoddal — nincs történet.</p>
+                  <span class="win-ico">✕</span><h3 data-i18n="b3H">Láthatatlan eredmény</h3><p data-i18n="b3P">Nem tudod, mi történt az adományoddal — nincs történet.</p>
                 </article>
               </div>
             </div>
             <!-- ActNow-val (balról vágva) -->
             <div class="pane pane-after" id="paneAfter">
               <div class="pane-head">
-                <span class="tag">ActNow-val</span>
+                <span class="tag" data-i18n="withAn">ActNow-val</span>
               </div>
               <div class="pane-cards" id="cardsAfter">
                 <article class="win-card" data-i="0" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">01</span><h3>Töltsd le az appot</h3><p>Az ActNow appban egy helyen érheted el a kampányokat és lehetőségeket.</p>
+                  <span class="win-ico">01</span><h3 data-i18n="a1H">Töltsd le az appot</h3><p data-i18n="a1P">Az ActNow appban egy helyen érheted el a kampányokat és lehetőségeket.</p>
                 </article>
                 <article class="win-card" data-i="1" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">02</span><h3>Válassz ügyet vagy ajánlj fel</h3><p>Adománnyal, felajánlással, önkéntességgel — ahogy neked megfelel.</p>
+                  <span class="win-ico">02</span><h3 data-i18n="a2H">Válassz ügyet vagy ajánlj fel</h3><p data-i18n="a2P">Adománnyal, felajánlással, önkéntességgel — ahogy neked megfelel.</p>
                 </article>
                 <article class="win-card" data-i="2" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=70')">
-                  <span class="win-ico">03</span><h3>Kövesd az eredményt</h3><p>A történeteket és dokumentációt itt, a weboldalon is megismerheted.</p>
+                  <span class="win-ico">03</span><h3 data-i18n="a3H">Kövesd az eredményt</h3><p data-i18n="a3P">A történeteket és dokumentációt itt, a weboldalon is megismerheted.</p>
                 </article>
               </div>
             </div>
             <div class="divider" id="divider">
-              <button type="button" class="divider-knob" id="knob" aria-label="Húzd balra-jobbra: ActNow-val vagy Nélküle">⇄</button>
+              <button type="button" class="divider-knob" id="knob" data-i18n-aria="sliderA11y" aria-label="Húzd balra-jobbra: ActNow-val vagy Nélküle">⇄</button>
             </div>
           </div>
           <div class="window-foot">
             <div class="dots" id="dots" aria-label="Ablak választó"></div>
-            <a class="pill pill-neon" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">Tovább</a>
+            <a class="pill pill-neon" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener" data-i18n="next">Tovább</a>
           </div>
         </div>
       </div>
@@ -491,14 +498,14 @@
       <div class="shell">
         <div class="panel">
           <div>
-            <h3>Te hogyan cselekednél?</h3>
-            <p>A napi műveletek az ActNow alkalmazásban történnek.</p>
+            <h3 data-i18n="actH">Te hogyan cselekednél?</h3>
+            <p data-i18n="actP">A napi műveletek az ActNow alkalmazásban történnek.</p>
           </div>
           <div class="action-btns">
-            <a class="action-btn" href="https://actnowcharity.com/app/daily-donation" data-open-app="daily-donation">Napi adomány</a>
-            <a class="action-btn" href="https://actnowcharity.com/app/redeem" data-open-app="redeem">QR beváltás</a>
-            <a class="action-btn" href="https://actnowcharity.com/app/offer" data-open-app="offer">Felajánlás</a>
-            <a class="action-btn" href="https://actnowcharity.com/app/auction" data-open-app="auction">Árverés</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/daily-donation" data-open-app="daily-donation" data-i18n="actDaily">Napi adomány</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/redeem" data-open-app="redeem" data-i18n="actRedeem">QR beváltás</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/offer" data-open-app="offer" data-i18n="actOffer">Felajánlás</a>
+            <a class="action-btn" href="https://actnowcharity.com/app/auction" data-open-app="auction" data-i18n="actAuction">Árverés</a>
           </div>
         </div>
       </div>
@@ -508,22 +515,22 @@
     <section class="block" id="tortenet">
       <div class="shell">
         <div class="sec-head">
-          <p class="k">Valódi történetek</p>
-          <h2>Nem ígéretek.<br />Történetek.</h2>
-          <p>Az ActNow egyik legfontosabb része, hogy a cselekvésnek története van. Megmutatjuk, mi történt az ügyekkel.</p>
+          <p class="k" data-i18n="storiesK">Valódi történetek</p>
+          <h2 data-i18n="storiesH2" data-i18n-html="1">Nem ígéretek.<br />Történetek.</h2>
+          <p data-i18n="storiesP">Az ActNow egyik legfontosabb része, hogy a cselekvésnek története van. Megmutatjuk, mi történt az ügyekkel.</p>
         </div>
         <div class="story-grid">
           <article class="story-main" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=70')">
-            <p class="gold">Első történet / Szendrő</p>
-            <h2>Szendrő — ahol már cselekedtünk.</h2>
-            <p>Valódi adomány, dokumentált cselekvés és közösségi segítség. Nézd meg, hogyan lett egy felajánlásból kézzelfogható eredmény.</p>
-            <a class="pill pill-neon" href="/kampany/szendro.html">Teljes történet →</a>
+            <p class="gold" data-i18n="szGold">Első történet / Szendrő</p>
+            <h2 data-i18n="szH2">Szendrő — ahol már cselekedtünk.</h2>
+            <p data-i18n="szP">Valódi adomány, dokumentált cselekvés és közösségi segítség. Nézd meg, hogyan lett egy felajánlásból kézzelfogható eredmény.</p>
+            <a class="pill pill-neon" href="/kampany/szendro.html" data-i18n="fullStory">Teljes történet →</a>
           </article>
           <div class="timeline">
-            <article class="tl"><div class="tl-num">01</div><div><h3>Megszületett az ügy</h3><p>Egy helyi probléma láthatóvá válik, és közösségi segítségre van szükség.</p></div></article>
-            <article class="tl"><div class="tl-num">02</div><div><h3>Megérkezett a segítség</h3><p>A felajánlásból konkrét cselekvés és valódi támogatás lesz.</p></div></article>
-            <article class="tl"><div class="tl-num">03</div><div><h3>Dokumentáltuk az eredményt</h3><p>A történet nem ér véget az adománynál. Megmutatjuk, mi történt utána.</p></div></article>
-            <article class="tl"><div class="tl-num">04</div><div><h3>A történet folytatódik</h3><p>Új ügyek, új szervezetek, új lehetőségek a cselekvésre.</p></div></article>
+            <article class="tl"><div class="tl-num">01</div><div><h3 data-i18n="tl1H">Megszületett az ügy</h3><p data-i18n="tl1P">Egy helyi probléma láthatóvá válik, és közösségi segítségre van szükség.</p></div></article>
+            <article class="tl"><div class="tl-num">02</div><div><h3 data-i18n="tl2H">Megérkezett a segítség</h3><p data-i18n="tl2P">A felajánlásból konkrét cselekvés és valódi támogatás lesz.</p></div></article>
+            <article class="tl"><div class="tl-num">03</div><div><h3 data-i18n="tl3H">Dokumentáltuk az eredményt</h3><p data-i18n="tl3P">A történet nem ér véget az adománynál. Megmutatjuk, mi történt utána.</p></div></article>
+            <article class="tl"><div class="tl-num">04</div><div><h3 data-i18n="tl4H">A történet folytatódik</h3><p data-i18n="tl4P">Új ügyek, új szervezetek, új lehetőségek a cselekvésre.</p></div></article>
           </div>
         </div>
       </div>
@@ -533,19 +540,19 @@
     <section class="block" style="border-top:1px solid #1a1a1a">
       <div class="shell">
         <div class="sec-head center">
-          <p class="k">Együtt többre vagyunk képesek</p>
-          <h2>Partnerek, akik cselekszenek.</h2>
-          <p>Az ActNow szervezeteket, közösségeket, vállalkozásokat és segíteni akaró embereket kapcsol össze.</p>
+          <p class="k" data-i18n="partK">Együtt többre vagyunk képesek</p>
+          <h2 data-i18n="partH2">Partnerek, akik cselekszenek.</h2>
+          <p data-i18n="partP">Az ActNow szervezeteket, közösségeket, vállalkozásokat és segíteni akaró embereket kapcsol össze.</p>
         </div>
         <div class="partner-grid">
           <div class="partner">Interfood</div>
           <div class="partner">Buday Taekwon-do</div>
           <div class="partner">ENSZ / WFP</div>
           <div class="partner">UNHCR</div>
-          <div class="partner">ICR — hamarosan</div>
+          <div class="partner" data-i18n="partSoon">ICR — hamarosan</div>
         </div>
         <div style="margin-top:20px;text-align:center">
-          <a class="pill pill-outline" href="/partnerek.html">Összes partner →</a>
+          <a class="pill pill-outline" href="/partnerek.html" data-i18n="allPartners">Összes partner →</a>
         </div>
       </div>
     </section>
@@ -555,15 +562,15 @@
       <div class="shell">
         <div class="trust-panel">
           <div>
-            <p class="k">Átláthatóság</p>
-            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em">A bizalom dokumentációval kezdődik.</h2>
-            <p>Az ActNow célja egy olyan rendszer létrehozása, ahol a jótékonysági cselekvés követhető, érthető és ellenőrizhető.</p>
+            <p class="k" data-i18n="trustK">Átláthatóság</p>
+            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em" data-i18n="trustH2">A bizalom dokumentációval kezdődik.</h2>
+            <p data-i18n="trustP">Az ActNow célja egy olyan rendszer létrehozása, ahol a jótékonysági cselekvés követhető, érthető és ellenőrizhető.</p>
           </div>
           <div class="trust-points">
-            <div class="tp"><div class="tp-check">✓</div><div><strong>Dokumentált ügyek</strong><span>A történetekhez valós események és eredmények kapcsolódnak.</span></div></div>
-            <div class="tp"><div class="tp-check">✓</div><div><strong>Követhető folyamat</strong><span>A cselekvés és annak eredménye strukturált módon jelenik meg.</span></div></div>
-            <div class="tp"><div class="tp-check">✓</div><div><strong>Közösségi részvétel</strong><span>Nem egyetlen szereplő dönt: a közösség is része a folyamatnak.</span></div></div>
-            <div class="tp"><div class="tp-check">✓</div><div><strong>Valós történetek</strong><span>Nem általános ígéreteket mutatunk, hanem konkrét ügyeket.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong data-i18n="tp1H">Dokumentált ügyek</strong><span data-i18n="tp1P">A történetekhez valós események és eredmények kapcsolódnak.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong data-i18n="tp2H">Követhető folyamat</strong><span data-i18n="tp2P">A cselekvés és annak eredménye strukturált módon jelenik meg.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong data-i18n="tp3H">Közösségi részvétel</strong><span data-i18n="tp3P">Nem egyetlen szereplő dönt: a közösség is része a folyamatnak.</span></div></div>
+            <div class="tp"><div class="tp-check">✓</div><div><strong data-i18n="tp4H">Valós történetek</strong><span data-i18n="tp4P">Nem általános ígéreteket mutatunk, hanem konkrét ügyeket.</span></div></div>
           </div>
         </div>
       </div>
@@ -574,11 +581,11 @@
       <div class="shell">
         <div class="panel">
           <div>
-            <p class="k" style="margin-bottom:8px">Szervezeteknek</p>
-            <h3>Van egy ügyetek? Csatlakozzatok.</h3>
-            <p>Alapítványok, egyesületek, egyházak, iskolák és közösségek csatlakozhatnak az ActNow hálózatához.</p>
+            <p class="k" style="margin-bottom:8px" data-i18n="orgK">Szervezeteknek</p>
+            <h3 data-i18n="orgH">Van egy ügyetek? Csatlakozzatok.</h3>
+            <p data-i18n="orgP">Alapítványok, egyesületek, egyházak, iskolák és közösségek csatlakozhatnak az ActNow hálózatához.</p>
           </div>
-          <a class="pill pill-neon" href="/szervezetek.html">Szervezet csatlakozása →</a>
+          <a class="pill pill-neon" href="/szervezetek.html" data-i18n="orgCta">Szervezet csatlakozása →</a>
         </div>
       </div>
     </section>
@@ -587,13 +594,13 @@
     <section class="block" style="padding-bottom:100px">
       <div class="shell">
         <div class="cta-box">
-          <p class="k">Most rajtad a sor</p>
-          <h2>Egy kis cselekvés nagy változást indíthat el.</h2>
-          <p>Töltsd le az ActNow alkalmazást, válassz egy ügyet, és cselekedj most.</p>
+          <p class="k" data-i18n="ctaK">Most rajtad a sor</p>
+          <h2 data-i18n="ctaH2">Egy kis cselekvés nagy változást indíthat el.</h2>
+          <p data-i18n="ctaP">Töltsd le az ActNow alkalmazást, válassz egy ügyet, és cselekedj most.</p>
           <div class="hero-btns">
-            <a class="pill pill-neon pill-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener"> Letöltés az App Store-ból</a>
-            <span class="pill pill-outline">Android hamarosan</span>
-            <a class="pill pill-link" href="/tortenet.html">Történetek megtekintése →</a>
+            <a class="pill pill-neon pill-lg" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener" data-i18n="ctaStore"> Letöltés az App Store-ból</a>
+            <span class="pill pill-outline" data-i18n="androidSoon">Android hamarosan</span>
+            <a class="pill pill-link" href="/tortenet.html" data-i18n="ctaStories">Történetek megtekintése →</a>
           </div>
         </div>
       </div>
@@ -605,25 +612,25 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <a class="logo" href="/"><span class="logo-mark">AN</span><span>Act<span class="accent">Now</span></span></a>
-          <p>Cselekedj most. Változtasd meg a holnapot. Valódi ügyek, valódi cselekvés, átlátható eredmények.</p>
+          <p data-i18n="footBlurb">Cselekedj most. Változtasd meg a holnapot. Valódi ügyek, valódi cselekvés, átlátható eredmények.</p>
         </div>
         <div>
-          <div class="foot-title">Platform</div>
+          <div class="foot-title" data-i18n="footPlatform">Platform</div>
           <div class="foot-links">
-            <a href="/tortenet.html">Történetek</a>
-            <a href="/partnerek.html">Partnerek</a>
-            <a href="/szervezetek.html">Szervezetek</a>
+            <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+            <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
+            <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
           </div>
         </div>
         <div>
-          <div class="foot-title">Jogi</div>
+          <div class="foot-title" data-i18n="footLegal">Jogi</div>
           <div class="foot-links">
-            <a href="/adatvedelem.html">Adatvédelem</a>
-            <a href="/aszf.html">ÁSZF</a>
+            <a href="/adatvedelem.html" data-i18n="footPrivacy">Adatvédelem</a>
+            <a href="/aszf.html" data-i18n="footTerms">ÁSZF</a>
           </div>
         </div>
         <div>
-          <div class="foot-title">Kapcsolat</div>
+          <div class="foot-title" data-i18n="footContact">Kapcsolat</div>
           <div class="foot-links">
             <a href="mailto:info@actnowcharity.com">info@actnowcharity.com</a>
             <a href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App Store</a>
@@ -631,7 +638,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 ActNow Charity. Minden jog fenntartva.</span>
+        <span data-i18n="footCopy">© 2026 ActNow Charity. Minden jog fenntartva.</span>
         <span>actnowcharity.com</span>
       </div>
     </div>
@@ -639,23 +646,23 @@
 
   <div class="share-backdrop" id="shareBackdrop" hidden>
     <div class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
-      <button type="button" class="share-close" aria-label="Bezárás">×</button>
+      <button type="button" class="share-close" data-i18n-aria="shareClose" aria-label="Bezárás">×</button>
       <div class="share-card" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80')">
         <div class="share-card-inner">
           <div class="share-card-top">
             <div class="share-card-logo"><span class="mark">AN</span><span>Act<span style="color:#b8ff2e">Now</span></span></div>
-            <h3>Mi lenne, ha a <em>cselekvésed</em> változást indítana?</h3>
+            <h3 data-i18n="shareH3" data-i18n-html="1">Mi lenne, ha a <em>cselekvésed</em> változást indítana?</h3>
             <div class="share-badges">
-              <span>Átlátható hatás</span>
-              <span>Valódi történetek</span>
-              <span>Egy app, sok ügy</span>
+              <span data-i18n="shareB1">Átlátható hatás</span>
+              <span data-i18n="shareB2">Valódi történetek</span>
+              <span data-i18n="shareB3">Egy app, sok ügy</span>
             </div>
           </div>
           <span class="share-url-pill">ACTNOWCHARITY.COM</span>
         </div>
       </div>
-      <p class="share-kicker">Oszd meg</p>
-      <p class="share-title" id="shareTitle">Minél többen cselekszünk, annál erősebb a hatásunk.</p>
+      <p class="share-kicker" data-i18n="shareKicker">Oszd meg</p>
+      <p class="share-title" id="shareTitle" data-i18n="shareTitle">Minél többen cselekszünk, annál erősebb a hatásunk.</p>
       <div class="share-btns">
         <button type="button" class="share-btn" data-share="facebook" aria-label="Facebook">
           <span class="share-btn-label">Facebook</span>
@@ -677,6 +684,9 @@
     </div>
   </div>
 
+  <button type="button" class="lang-float" id="langFloat" data-i18n-aria="langA11y" aria-label="Nyelv">A文</button>
+
+  <script src="/assets/i18n.js?v=1"></script>
   <script src="/assets/open-app.js"></script>
   <script src="/assets/share.js?v=2"></script>
   <script>

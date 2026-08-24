@@ -1,0 +1,90 @@
+/* Language picker */
+.lang-wrap { position: relative; }
+.lang-trigger {
+  height: 44px;
+  min-width: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #3a3a3a;
+  background: #0a0a0a;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  transition: .15s border-color, .15s box-shadow, .15s background, .15s color;
+}
+.lang-trigger:hover,
+.lang-wrap.open .lang-trigger {
+  border-color: var(--neon);
+  background: rgba(184,255,46,.08);
+  box-shadow: 0 0 20px var(--neon-glow);
+  color: var(--neon);
+}
+.lang-trigger .flag { font-size: 15px; line-height: 1; }
+.lang-trigger .code { text-transform: uppercase; }
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  max-height: min(70vh, 420px);
+  overflow: auto;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid #2a2a2a;
+  background: #0c0c0c;
+  box-shadow: 0 16px 48px rgba(0,0,0,.55), 0 0 24px rgba(184,255,46,.08);
+  display: none;
+  z-index: 120;
+}
+.lang-wrap.open .lang-menu { display: block; }
+.lang-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #eee;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.lang-menu button:hover { background: rgba(184,255,46,.1); color: #fff; }
+.lang-menu button.active {
+  background: rgba(184,255,46,.14);
+  color: var(--neon);
+}
+.lang-menu .flag { font-size: 16px; }
+.lang-float {
+  position: fixed;
+  right: 14px;
+  bottom: 88px;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: rgba(10,10,10,.92);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.4);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+.lang-float:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 22px var(--neon-glow);
+}
+@media (min-width: 860px) {
+  .lang-float { display: none; }
+}

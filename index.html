@@ -49,9 +49,28 @@
     .logo-name { font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
     .logo-sub { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: lowercase; color: var(--muted); }
     .logo span.accent { color: var(--neon); }
-    .nav-links { display: none; gap: 1.4rem; align-items: center; }
-    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
-    .nav-links a:hover { color: #fff; }
+    .nav-links { display: none; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+    .nav-group a {
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      padding: 7px 11px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: color .15s, background .15s;
+    }
+    .nav-group a:hover { color: #fff; background: rgba(184,255,46,.12); }
+    .nav-group a.is-active { color: #0a1400; background: var(--neon); }
     .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: 14px; border: 1px solid transparent; transition: .15s transform, .15s filter; }
     .pill:hover { transform: translateY(-1px); }
     .pill-neon { background: var(--neon); color: #0a1400; box-shadow: 0 0 36px var(--neon-glow); }
@@ -411,7 +430,7 @@
     .foot-brand p { margin-top: 14px; max-width: 280px; line-height: 1.6; }
     .foot-bottom { margin-top: 40px; padding-top: 18px; border-top: 1px solid #1a1a1a; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 11px; color: #666; }
 
-    @media (min-width: 860px) { .nav-links { display: flex; } }
+    @media (min-width: 980px) { .nav-links { display: flex; } }
     @media (max-width: 720px) {
       .panel { flex-direction: column; align-items: flex-start; }
       .hdr-row .pill-neon:not(.nav-dl) { display: none; }
@@ -429,16 +448,22 @@
           <span class="logo-sub">charity</span>
         </span>
       </a>
-      <nav class="nav-links">
-        <a href="#miert" data-i18n="navWhy">Miért ActNow?</a>
-        <a href="#hogyan" data-i18n="navHow">Hogyan működik?</a>
-        <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
-        <a href="/esg.html" data-i18n="navEsg">ESG</a>
-        <a href="/platform.html">Platform</a>
-        <a href="#rolunk" data-i18n="navAbout">Rólunk</a>
-        <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
-        <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
-        <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
+      <nav class="nav-links" aria-label="Fő navigáció">
+        <div class="nav-group" aria-label="Megismerés">
+          <a href="#miert" data-i18n="navWhy">Miért ActNow?</a>
+          <a href="#hogyan" data-i18n="navHow">Hogyan működik?</a>
+          <a href="#rolunk" data-i18n="navAbout">Rólunk</a>
+        </div>
+        <div class="nav-group" aria-label="Hálózat">
+          <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
+          <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+          <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
+          <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
+        </div>
+        <div class="nav-group" aria-label="Cégek és platform">
+          <a href="/esg.html" data-i18n="navEsg">ESG</a>
+          <a href="/platform.html">Platform</a>
+        </div>
       </nav>
       <div class="hdr-actions">
         <div class="lang-wrap">

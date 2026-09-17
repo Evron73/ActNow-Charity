@@ -25,12 +25,16 @@
   <header class="hdr">
     <div class="shell hdr-row">
       <a class="logo" href="/"><span class="logo-mark">ANC</span><span class="logo-text"><span class="logo-name">Act<span class="accent">Now</span></span><span class="logo-sub">charity</span></span></a>
-      <nav class="nav-links">
-        <a href="/#hogyan">Hogyan működik?</a>
-        <a href="/koordinatorok.html">Átadópontok</a>
-        <a href="/szervezetek.html">Szervezetek</a>
-        <a href="/esg.html">ESG</a>
-        <a href="/platform.html">Platform</a>
+      <nav class="nav-links" aria-label="Fő navigáció">
+        <div class="nav-group">
+          <a href="/#hogyan">Hogyan működik?</a>
+          <a href="/koordinatorok.html">Átadópontok</a>
+          <a href="/szervezetek.html">Szervezetek</a>
+        </div>
+        <div class="nav-group">
+          <a href="/esg.html">ESG</a>
+          <a href="/platform.html" class="is-active">Platform</a>
+        </div>
       </nav>
       <a class="pill pill-neon" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener">App →</a>
     </div>
@@ -50,7 +54,9 @@
     <h1>Nem mindent az appba. Azt, ami a képbe illik.</h1>
     <p class="lead">
       Az ActNow store appban a napi cselekvés marad: felajánlás, térkép, napi QR, szervezeti csere, árverés.
-      Nincs külön „koordinátor” szerep — az app párosít. A vállalati / partner / jövőbeli modulok részletei a weben élnek.
+      Nincs külön „koordinátor” szerep — az app párosít. A vállalati / partner részletek és a hosszabb távú vízió
+      itt a weben átlátható — <strong>élő</strong>, <strong>következő</strong> és <strong>vízió</strong> jelöléssel,
+      hogy partnerek és cégek lássák, mi kész, és mi jön.
     </p>
 
     <div class="prose">
@@ -81,7 +87,7 @@
     </div>
 
     <div class="prose" style="margin-top:28px">
-      <h2>Modulok — élő / következő / később</h2>
+      <h2>Modulok — élő / következő / vízió</h2>
     </div>
 
     <table class="mod-table">
@@ -96,10 +102,10 @@
           <td>Merchant POS mikroadomány magja — ezt bővítjük, nem új párhuzamos rendszert.</td>
         </tr>
         <tr>
-          <td>Szervezeti csere (felesleg ↔ szükséglet)</td>
+          <td>Szervezeti csere + QR átadás-lezárás</td>
           <td><span class="tag tag-live">Élő</span></td>
           <td>App főoldal + űrlap</td>
-          <td>NGO Barter alap. Következő: QR átadás-lezárás + státuszok.</td>
+          <td>Felesleg ↔ szükséglet párosítás; átadáskor QR → completed + nyilvános napló.</td>
         </tr>
         <tr>
           <td>Térkép / közeli felajánlások</td>
@@ -127,9 +133,9 @@
         </tr>
         <tr>
           <td>NGO Barter QR lezárás</td>
-          <td><span class="tag tag-next">Következő</span></td>
+          <td><span class="tag tag-live">Élő</span></td>
           <td>App org-exchange</td>
-          <td>Match → Transaction ID → scan → Completed / ledger.</td>
+          <td>Match → Transaction ID → scan → Completed / ledger — kész.</td>
         </tr>
         <tr>
           <td>Bizalom / anti-fraud korlátok</td>
@@ -139,19 +145,19 @@
         </tr>
         <tr>
           <td>GLS / InPost automata</td>
-          <td><span class="tag tag-later">Később</span></td>
+          <td><span class="tag tag-later">Vízió</span></td>
           <td>Web partner + API</td>
           <td>Partner-szerződés kell. Appban csak ha van élő API.</td>
         </tr>
         <tr>
           <td>Luxus aukció / storage raffle / celebrity</td>
-          <td><span class="tag tag-later">Később</span></td>
+          <td><span class="tag tag-later">Vízió</span></td>
           <td>Web kampány</td>
           <td>Nem terheli a store appot. Kampányoldal + meglévő auction mag.</td>
         </tr>
         <tr>
           <td>Crowdsourced könyv / eco-ticket</td>
-          <td><span class="tag tag-later">Később</span></td>
+          <td><span class="tag tag-later">Vízió</span></td>
           <td>Web</td>
           <td>Külön kampány-modulok, nem core tab.</td>
         </tr>

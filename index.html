@@ -69,8 +69,16 @@
       white-space: nowrap;
       transition: color .15s, background .15s;
     }
-    .nav-group a:hover { color: #fff; background: rgba(184,255,46,.12); }
-    .nav-group a.is-active { color: #0a1400; background: var(--neon); }
+    .nav-group a:hover {
+      color: #0a1400;
+      background: var(--neon);
+      box-shadow: 0 0 18px rgba(184,255,46,.35);
+    }
+    .nav-group a.is-active {
+      color: #0a1400;
+      background: var(--neon);
+      box-shadow: 0 0 18px rgba(184,255,46,.35);
+    }
     .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: 14px; border: 1px solid transparent; transition: .15s transform, .15s filter; }
     .pill:hover { transform: translateY(-1px); }
     .pill-neon { background: var(--neon); color: #0a1400; box-shadow: 0 0 36px var(--neon-glow); }

@@ -11,9 +11,22 @@
     }
   }
 
+  function dailyToken() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      return params.get('t') || params.get('token') || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
   function openApp(key) {
     var ref = chainRef();
-    var target = SCHEME + key + (ref ? '?ref=' + encodeURIComponent(ref) : '');
+    var token = dailyToken();
+    var qs = [];
+    if (ref) qs.push('ref=' + encodeURIComponent(ref));
+    if (token && key === 'redeem') qs.push('t=' + encodeURIComponent(token));
+    var target = SCHEME + key + (qs.length ? '?' + qs.join('&') : '');
     var timer = setTimeout(function () {
       window.location.href = APP_STORE;
     }, 1600);

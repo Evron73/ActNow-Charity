@@ -274,6 +274,68 @@
       z-index: 7;
       touch-action: none;
     }
+
+    .about-full {
+      margin-top: 28px;
+      padding: 28px 26px;
+      border-radius: 22px;
+      border: 1px solid rgba(184,255,46,0.22);
+      background: linear-gradient(160deg, rgba(184,255,46,0.06), rgba(34,211,238,0.04) 45%, rgba(10,10,10,0.9));
+    }
+    .about-full .k { margin-bottom: 8px; }
+    .about-full h2 {
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 0 14px;
+      line-height: 1.15;
+    }
+    .about-full .lead {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.65;
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    .about-card {
+      padding: 16px 16px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+    .about-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--neon);
+    }
+    .about-card p, .about-card li {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+    .about-card ul { margin: 0; padding-left: 1.1rem; }
+    .about-card li + li { margin-top: 6px; }
+    .about-quote {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+      color: #f5f5f5;
+      font-style: italic;
+      line-height: 1.55;
+      background: rgba(245,200,66,0.06);
+      border-radius: 0 14px 14px 0;
+    }
+
     .window-foot {
       display: flex;
       align-items: center;
@@ -370,6 +432,9 @@
       <nav class="nav-links">
         <a href="#miert" data-i18n="navWhy">Miért ActNow?</a>
         <a href="#hogyan" data-i18n="navHow">Hogyan működik?</a>
+        <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
+        <a href="/esg.html" data-i18n="navEsg">ESG</a>
+        <a href="#rolunk" data-i18n="navAbout">Rólunk</a>
         <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
         <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
         <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
@@ -493,9 +558,40 @@
           </div>
           <div class="window-foot">
             <div class="dots" id="dots" aria-label="Ablak választó"></div>
-            <a class="pill pill-neon" href="https://apps.apple.com/us/app/actnow-charity/id6778068435" target="_blank" rel="noopener" data-i18n="next">Tovább</a>
+            <a class="pill pill-neon" href="#rolunk" data-i18n="next">Tovább</a>
           </div>
         </div>
+
+          <div class="about-full" id="rolunk">
+            <p class="k" data-i18n="aboutK">Rólunk</p>
+            <h2 data-i18n="aboutH2">ActNow — híd a segítséghez</h2>
+            <p class="lead" data-i18n="aboutLead">Az ActNow összekapcsolja azokat, akik tudnak adni, azokkal, akik a saját közösségükben pontosan tudják, kinek van szüksége segítségre. A technológiát mi adjuk — a helyi tudást és a bizalmat ti.</p>
+            <div class="about-grid">
+              <article class="about-card">
+                <h3 data-i18n="about1H">Mi az ActNow?</h3>
+                <p data-i18n="about1P">Mobilalkalmazás és átlátható web: felajánlás, önkéntes szállítás, napi étel QR, partner éttermek, árverés és mérhető hatás egy helyen. Nem mi osztjuk szét az adományokat — a koordinátorok és a helyi közösségek döntik el, hova kerüljön.</p>
+              </article>
+              <article class="about-card">
+                <h3 data-i18n="about2H">Hogyan működik?</h3>
+                <ul>
+                  <li data-i18n="about2L1">Felajánlás az appban (fotó, cím, időablak)</li>
+                  <li data-i18n="about2L2">Önkéntes vállalja és elviszi</li>
+                  <li data-i18n="about2L3">Személyes átadás fotóval igazolva</li>
+                  <li data-i18n="about2L4">Utókövetés és történet a weben</li>
+                </ul>
+              </article>
+              <article class="about-card">
+                <h3 data-i18n="about3H">Napi ételadag (QR)</h3>
+                <p data-i18n="about3P">Partner étterem naponta adagokat biztosít. ActNow kiad egy egyszer használatos QR-t, a rászoruló mutatja, az étterem beváltja — 7 napig érvényes, napálható.</p>
+              </article>
+              <article class="about-card">
+                <h3 data-i18n="about4H">Kinek szól?</h3>
+                <p data-i18n="about4P">Magánszemélyeknek, önkénteseknek, helyi koordinátoroknak, éttermeknek, szervezeteknek és vállalatoknak — akik adományozni, segíteni vagy ESG-riportot szeretnének.</p>
+              </article>
+            </div>
+            <p class="about-quote" data-i18n="aboutQuote">„Ne kérd Istentől a segítséget — kérdezd meg, te miben segíthetsz neki.”</p>
+          </div>
+
       </div>
     </section>
 
@@ -511,7 +607,7 @@
             <a class="action-btn" href="https://actnowcharity.com/app/daily-donation" data-open-app="daily-donation" data-i18n="actDaily">Napi adomány</a>
             <a class="action-btn" href="https://actnowcharity.com/app/redeem" data-open-app="redeem" data-i18n="actRedeem">QR beváltás</a>
             <a class="action-btn" href="https://actnowcharity.com/app/offer" data-open-app="offer" data-i18n="actOffer">Felajánlás</a>
-            <a class="action-btn" href="https://actnowcharity.com/app/auction" data-open-app="auction" data-i18n="actAuction">Árverés</a>
+            <a class="action-btn" href="/esg.html" data-i18n="actEsg">ESG cégeknek</a>
           </div>
         </div>
       </div>
@@ -596,6 +692,23 @@
       </div>
     </section>
 
+    <!-- ESG VÁLLALATOKNAK -->
+    <section class="block" id="esg" style="padding-top:20px">
+      <div class="shell">
+        <div class="panel">
+          <div>
+            <p class="k" style="margin-bottom:8px" data-i18n="esgK">Vállalatoknak</p>
+            <h3 data-i18n="esgH">ESG riport — igénylés / hamarosan automatikus</h3>
+            <p data-i18n="esgP">Az app egyszerű marad. A céges ESG összefoglaló itt a weben indul: írj nekünk, és mérhető hatást (CO₂, adományok) kapsz vissza. A teljesen automatikus dashboard hamarosan jön.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a class="pill pill-neon" href="/esg.html" data-i18n="esgCta">ESG részletek →</a>
+            <a class="pill pill-outline" href="mailto:partner@actnowcharity.com?subject=ActNow%20ESG%20riport%20ig%C3%A9nyl%C3%A9s" data-i18n="esgRequest">Riport igénylése</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section class="block" style="padding-bottom:100px">
       <div class="shell">
@@ -624,6 +737,8 @@
           <div class="foot-title" data-i18n="footPlatform">Platform</div>
           <div class="foot-links">
             <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+            <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
+            <a href="/esg.html" data-i18n="navEsg">ESG</a>
             <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
             <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
           </div>

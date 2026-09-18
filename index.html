@@ -471,8 +471,14 @@
 
     @media (min-width: 1100px) { .nav-links { display: flex; } }
     @media (max-width: 1099px) {
-      .hdr-row { grid-template-columns: auto auto; gap: 1rem; }
-      .hdr-actions { margin-left: auto; }
+      .hdr-row { grid-template-columns: auto 1fr auto; gap: 0.75rem; }
+      .hdr-actions { margin-left: 0; }
+      .nav-burger { display: inline-flex; }
+    }
+    @media (min-width: 1100px) {
+      .nav-burger,
+      .nav-drawer,
+      .nav-backdrop { display: none !important; }
     }
     @media (max-width: 720px) {
       .panel { flex-direction: column; align-items: flex-start; }
@@ -484,6 +490,77 @@
       .hdr .logo-sub { font-size: 13px; }
       .hdr-row { min-height: 64px; }
     }
+
+    .nav-burger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      padding: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-burger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: #fff;
+      transition: transform .2s, opacity .2s;
+    }
+    .nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(0,0,0,.55);
+    }
+    .nav-drawer {
+      position: fixed;
+      z-index: 95;
+      top: 0;
+      right: 0;
+      width: min(100%, 320px);
+      height: 100%;
+      background: #0a0a0a;
+      border-left: 1px solid #222;
+      padding: 88px 20px 28px;
+      overflow-y: auto;
+      box-shadow: -16px 0 48px rgba(0,0,0,.45);
+    }
+    .nav-drawer-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .nav-drawer-list { display: flex; flex-direction: column; gap: 4px; }
+    .nav-drawer-list a {
+      display: block;
+      padding: 14px 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      border: 1px solid transparent;
+    }
+    .nav-drawer-list a:hover,
+    .nav-drawer-list a.is-active {
+      background: rgba(184,255,46,.12);
+      border-color: rgba(184,255,46,.35);
+      color: var(--neon);
+    }
+    body.nav-open { overflow: hidden; }
   </style>
 </head>
 <body>
@@ -506,6 +583,7 @@
         <div class="nav-group" aria-label="Hálózat">
           <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
           <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+          <a href="/ukrajna.html" data-i18n="navUkraine">Ukrajna</a>
           <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
           <a href="/szervezetek.html" data-i18n="navOrgs">Szervezetek</a>
         </div>
@@ -812,6 +890,7 @@
           <div class="foot-title" data-i18n="footPlatform">Platform</div>
           <div class="foot-links">
             <a href="/tortenet.html" data-i18n="navStories">Történetek</a>
+            <a href="/ukrajna.html" data-i18n="navUkraine">Ukrajna</a>
             <a href="/koordinatorok.html" data-i18n="navCoords">Átadópontok</a>
             <a href="/esg.html" data-i18n="navEsg">ESG</a>
             <a href="/partnerek.html" data-i18n="navPartners">Partnerek</a>
@@ -883,6 +962,7 @@
   <button type="button" class="lang-float" id="langFloat" data-i18n-aria="langA11y" aria-label="Nyelv">A文</button>
 
   <script src="/assets/i18n.js?v=2"></script>
+  <script src="/assets/nav-mobile.js?v=1"></script>
   <script src="/assets/open-app.js"></script>
   <script src="/assets/share.js?v=2"></script>
   <script>

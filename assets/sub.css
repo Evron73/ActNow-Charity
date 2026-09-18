@@ -159,3 +159,187 @@ footer { border-top: 1px solid #1a1a1a; padding: 32px 0; color: var(--muted); fo
   .hdr .logo-sub { font-size: 13px; }
   .hdr-row { min-height: 64px; }
 }
+
+/* Mobile hamburger + drawer */
+.nav-burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-burger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform .2s, opacity .2s;
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(0,0,0,.55);
+}
+.nav-drawer {
+  position: fixed;
+  z-index: 95;
+  top: 0;
+  right: 0;
+  width: min(100%, 320px);
+  height: 100%;
+  background: #0a0a0a;
+  border-left: 1px solid #222;
+  padding: 88px 20px 28px;
+  overflow-y: auto;
+  box-shadow: -16px 0 48px rgba(0,0,0,.45);
+}
+.nav-drawer-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.nav-drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-drawer-list a {
+  display: block;
+  padding: 14px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.nav-drawer-list a:hover,
+.nav-drawer-list a.is-active {
+  background: rgba(184,255,46,.12);
+  border-color: rgba(184,255,46,.35);
+  color: var(--neon);
+}
+body.nav-open { overflow: hidden; }
+@media (max-width: 1099px) {
+  .nav-burger { display: inline-flex; }
+}
+@media (min-width: 1100px) {
+  .nav-burger,
+  .nav-drawer,
+  .nav-backdrop { display: none !important; }
+}
+
+/* Ukraine Relief Ledger */
+.ukraine-bleed { position: relative; }
+.ukraine-flag-bar {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, #005BBB 50%, #FFD500 50%);
+}
+.ledger-h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.ledger-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 8px 0 8px;
+}
+.ledger-stat {
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 16px 14px;
+  background: #101010;
+}
+.ledger-stat strong {
+  display: block;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: #FFD500;
+  margin-bottom: 4px;
+}
+.ledger-stat span {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.ledger-list { display: flex; flex-direction: column; gap: 14px; }
+.ledger-card {
+  border: 1px solid #222;
+  border-radius: 18px;
+  padding: 20px;
+  background: #141414;
+}
+.ledger-card-empty { border-style: dashed; }
+.ledger-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.ledger-date {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #005BBB;
+  margin-bottom: 6px;
+}
+.ledger-card h3 { font-size: 17px; margin: 0; }
+.ledger-body { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
+.ledger-meta {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #ddd;
+}
+.ledger-meta strong { color: #fff; margin-right: 6px; }
+.ledger-partners { font-size: 12px; color: var(--muted); margin: 0 0 12px; }
+.ledger-badge {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(184, 255, 46, 0.14);
+  color: var(--neon);
+  border: 1px solid rgba(184, 255, 46, 0.35);
+}
+.ledger-badge-pending {
+  background: rgba(255, 213, 0, 0.1);
+  color: #FFD500;
+  border-color: rgba(255, 213, 0, 0.35);
+}
+.ledger-mission-media { margin: 12px 0 0; }
+.ledger-note { color: var(--muted); font-size: 14px; margin-top: 10px; }
+@media (max-width: 640px) {
+  .ledger-stats { grid-template-columns: 1fr; }
+}

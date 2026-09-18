@@ -412,9 +412,41 @@
     }
     .dots button.on { width: 28px; background: var(--neon); box-shadow: 0 0 10px var(--neon-glow); }
     @media (max-width: 720px) {
-      .pane-cards { flex-direction: column; height: auto; }
-      .win-card { min-height: 180px; flex: none; }
-      .window { min-height: auto; }
+      .window {
+        min-height: 0;
+        border-radius: 22px;
+      }
+      .window-body {
+        min-height: 440px;
+        height: 440px;
+      }
+      .pane-head {
+        padding: 12px 14px 8px;
+        min-height: 48px;
+      }
+      .pane-cards {
+        flex-direction: column;
+        height: calc(100% - 48px);
+        padding: 0 14px 14px;
+        gap: 0;
+      }
+      /* One full card at a time — dots switch steps */
+      .pane-cards .win-card {
+        display: none;
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: 0;
+        height: 100%;
+        min-width: 0;
+      }
+      .pane-cards .win-card.is-on {
+        display: flex;
+      }
+      .win-card h3 { font-size: 16px; }
+      .win-card p { font-size: 13px; line-height: 1.45; }
+      .win-ico { width: 40px; height: 40px; font-size: 14px; }
+      .divider-knob { width: 44px; height: 44px; }
+      .window-foot { padding: 12px 14px; }
     }
 
     /* ACTION PANEL */
@@ -1018,17 +1050,37 @@
     var body = document.getElementById("windowBody");
     var knob = document.getElementById("knob");
     var dotsWrap = document.getElementById("dots");
-    if (!win || !knob || !body) return;
+    var cardsBefore = document.getElementById("cardsBefore");
+    var cardsAfter = document.getElementById("cardsAfter");
+    if (!win || !knob || !body || !dotsWrap) return;
 
     var split = 50;
     var dragging = false;
+    var cardIndex = 1;
+    var dots = [];
 
     for (var i = 0; i < 3; i++) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.setAttribute("aria-label", "Lépés " + (i + 1));
-      if (i === 1) dot.className = "on";
-      dotsWrap.appendChild(dot);
+      (function (idx) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Lépés " + (idx + 1));
+        dot.addEventListener("click", function () { setCard(idx); });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      })(i);
+    }
+
+    function setCard(i) {
+      cardIndex = Math.max(0, Math.min(2, i));
+      [cardsBefore, cardsAfter].forEach(function (wrap) {
+        if (!wrap) return;
+        wrap.querySelectorAll(".win-card").forEach(function (card, idx) {
+          card.classList.toggle("is-on", idx === cardIndex);
+        });
+      });
+      dots.forEach(function (d, idx) {
+        d.classList.toggle("on", idx === cardIndex);
+      });
     }
 
     function setSplit(pct, animate) {
@@ -1069,6 +1121,7 @@
     });
     body.addEventListener("pointerdown", function (e) {
       if (e.target.closest(".divider-knob")) return;
+      if (e.target.closest(".dots")) return;
       body.setPointerCapture(e.pointerId);
       startDrag(e);
     });
@@ -1079,8 +1132,11 @@
     knob.addEventListener("keydown", function (e) {
       if (e.key === "ArrowLeft") { setSplit(split - 5, true); e.preventDefault(); }
       if (e.key === "ArrowRight") { setSplit(split + 5, true); e.preventDefault(); }
+      if (e.key === "ArrowUp") { setCard(cardIndex - 1); e.preventDefault(); }
+      if (e.key === "ArrowDown") { setCard(cardIndex + 1); e.preventDefault(); }
     });
 
+    setCard(1);
     setSplit(50, true);
   })();
   </script>

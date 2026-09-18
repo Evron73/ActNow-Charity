@@ -1,8 +1,19 @@
 .hdr-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 16px;
   flex-shrink: 0;
+  margin-left: 2rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255,255,255,.12);
+}
+@media (max-width: 720px) {
+  .hdr-actions {
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+    gap: 10px;
+  }
 }
 .share-trigger {
   width: 44px;

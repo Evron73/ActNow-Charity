@@ -1,19 +1,31 @@
 /**
- * Mobile hamburger — clones .nav-links into a drawer under 1100px.
- * Desktop keeps the existing pill nav.
+ * Mobile hamburger — uses existing .nav-burger if present, else creates one.
+ * Clones .nav-links into a drawer under 1100px.
  */
 (function () {
   var nav = document.querySelector('.nav-links');
   var row = document.querySelector('.hdr-row');
-  if (!nav || !row || document.querySelector('.nav-burger')) return;
+  if (!nav || !row) return;
 
-  var btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'nav-burger';
-  btn.setAttribute('aria-label', 'Menü');
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-controls', 'navDrawer');
-  btn.innerHTML = '<span></span><span></span><span></span>';
+  var btn = document.querySelector('.nav-burger');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-burger';
+    btn.setAttribute('aria-label', 'Menü');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'navDrawer');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    var actions = row.querySelector('.hdr-actions');
+    if (actions) actions.appendChild(btn);
+    else row.appendChild(btn);
+  } else {
+    btn.setAttribute('aria-controls', 'navDrawer');
+    if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Menü');
+    if (!btn.getAttribute('aria-expanded')) btn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (document.getElementById('navDrawer')) return;
 
   var backdrop = document.createElement('div');
   backdrop.className = 'nav-backdrop';
@@ -46,14 +58,6 @@
   });
 
   drawer.appendChild(list);
-
-  // Always pin burger to the far right (inside actions if present)
-  var actions = row.querySelector('.hdr-actions');
-  if (actions) {
-    actions.appendChild(btn);
-  } else {
-    row.appendChild(btn);
-  }
   document.body.appendChild(backdrop);
   document.body.appendChild(drawer);
 

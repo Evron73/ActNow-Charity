@@ -163,9 +163,9 @@ footer { border-top: 1px solid #1a1a1a; padding: 32px 0; color: var(--muted); fo
 /* Mobile hamburger + drawer */
 .nav-burger {
   display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.06);
   padding: 0;
@@ -236,7 +236,7 @@ footer { border-top: 1px solid #1a1a1a; padding: 32px 0; color: var(--muted); fo
 }
 body.nav-open { overflow: hidden; }
 @media (max-width: 1099px) {
-  .nav-burger { display: inline-flex; }
+  .nav-burger { display: inline-flex !important; }
   .hdr-row {
     display: flex;
     flex-wrap: nowrap;

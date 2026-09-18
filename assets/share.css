@@ -8,11 +8,17 @@
   padding-left: 1.5rem;
   border-left: 1px solid rgba(255,255,255,.12);
 }
+@media (max-width: 1099px) {
+  .hdr-actions {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    gap: 8px;
+  }
+}
 @media (max-width: 720px) {
   .hdr-actions {
-    margin-left: 0.75rem;
-    padding-left: 0.75rem;
-    gap: 10px;
+    gap: 6px;
   }
 }
 .share-trigger {
@@ -28,6 +34,16 @@
   transition: .15s border-color, .15s box-shadow, .15s transform, .15s background;
   flex-shrink: 0;
   padding: 0;
+}
+@media (max-width: 720px) {
+  .share-trigger {
+    width: 36px;
+    height: 36px;
+  }
+  .share-trigger svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 .share-trigger svg {
   width: 18px;

@@ -47,9 +47,10 @@
 
   drawer.appendChild(list);
 
+  // Always pin burger to the far right (inside actions if present)
   var actions = row.querySelector('.hdr-actions');
   if (actions) {
-    row.insertBefore(btn, actions);
+    actions.appendChild(btn);
   } else {
     row.appendChild(btn);
   }

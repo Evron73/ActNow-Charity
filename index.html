@@ -405,12 +405,34 @@
       position: relative;
       z-index: 8;
     }
-    .dots { display: flex; gap: 8px; align-items: center; }
+    .dots { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .dots button {
-      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
-      background: #333; cursor: pointer; transition: .2s;
+      min-width: 40px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #333;
+      border-radius: 999px;
+      background: #1a1a1a;
+      color: #9ca3af;
+      cursor: pointer;
+      transition: .2s;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-family: inherit;
     }
-    .dots button.on { width: 28px; background: var(--neon); box-shadow: 0 0 10px var(--neon-glow); }
+    .dots button.on {
+      width: auto;
+      background: var(--neon);
+      border-color: var(--neon);
+      color: #0a1400;
+      box-shadow: 0 0 16px var(--neon-glow);
+    }
+    .dots button:hover {
+      border-color: rgba(184,255,46,.45);
+      color: #fff;
+    }
+    .dots button.on:hover { color: #0a1400; }
     @media (max-width: 720px) {
       .window {
         min-height: 0;
@@ -789,7 +811,7 @@
             </div>
           </div>
           <div class="window-foot">
-            <div class="dots" id="dots" aria-label="Ablak választó"></div>
+            <div class="dots" id="dots" aria-label="Lépés választó"></div>
             <a class="pill pill-neon" href="#rolunk" data-i18n="next">Tovább</a>
           </div>
         </div>
@@ -1063,7 +1085,9 @@
       (function (idx) {
         var dot = document.createElement("button");
         dot.type = "button";
-        dot.setAttribute("aria-label", "Lépés " + (idx + 1));
+        var label = String(idx + 1).padStart(2, "0");
+        dot.textContent = label;
+        dot.setAttribute("aria-label", "Lépés " + label);
         dot.addEventListener("click", function () { setCard(idx); });
         dotsWrap.appendChild(dot);
         dots.push(dot);
